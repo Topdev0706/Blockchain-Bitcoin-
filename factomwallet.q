@@ -15,9 +15,9 @@ defaultPayload:{
 
 
 getCmd:{[body]
-  .j.k .Q.hg[`:http://localhost:8089/v2;"Content-Type: text/plain"]  .j.j body
+  result:.j.k .Q.hg[`:http://localhost:8089/v2;"Content-Type: text/plain"]  .j.j body;
+  `jsonrpc`id _result
  };
-
 
 address:{[factoidAddress]
   body:defaultPayload[];
