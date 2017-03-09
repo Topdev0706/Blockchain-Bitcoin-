@@ -15,7 +15,8 @@ defaultPayload:{
 
 
 postCmd:{[body]
-  .j.k .Q.hp[`:http://localhost:8088/v2;"Content-Type: text/plain"]  .j.j body
+  result:.j.k .Q.hp[`:http://localhost:8088/v2;"Content-Type: text/plain"]  .j.j body;
+  `jsonrpc`id _result
  }; 
 
 
