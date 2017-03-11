@@ -16,14 +16,12 @@ defaultPayload:{
 
 
 getCmd:{[body]
-  result:.j.k .Q.hg[`:http://localhost:8089/v2;"Content-Type: text/plain"] .j.j body;
-  `jsonrpc`id _result
+  .j.k .Q.hg[`:http://localhost:8089/v2;"Content-Type: text/plain"] .j.j body
  };
 
 
 postCmd:{[body]
-  result:.j.k .Q.hp[`:http://localhost:8089/v2;"Content-Type: text/plain"] .j.j body;
-  `jsonrpc`id _result
+  .j.k .Q.hp[`:http://localhost:8089/v2;"Content-Type: text/plain"] .j.j body
  };
 
 
