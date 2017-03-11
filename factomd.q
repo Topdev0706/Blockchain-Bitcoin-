@@ -98,7 +98,6 @@ entry:{[entryHash]
  };
 
 
-
 pending_entries:{[transactionHash]
   body:defaultPayload[];
   body[`method]:"pending-entries";
