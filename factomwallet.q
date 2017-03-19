@@ -230,7 +230,7 @@ trans_fact_ec:{[txname;input;outputEC;quantity]
   Data:new_transaction[txname];
   Data:add_input[txname;input;quantity];
   Data:add_ec_output[txname;outputEC;quantity];
-  Data:sub_fee[txname;outputEC];
+  Data:add_fee[txname;input];
   Data:sign_transaction[txname];
   output:compose_transaction[txname];
   hexString:output[`result][`params][`transaction];
