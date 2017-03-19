@@ -214,6 +214,30 @@ reveal_chain:{[entry]
  };
 
 
+trans_fact_fact:{[txname;input;output;quantity]
+  Data:new_transaction[txname];
+  Data:add_input[txname;input;quantity];
+  Data:add_output[txname;output;quantity];
+  Data:sub_fee[txname;output];
+  Data:sign_transaction[txname];
+  output:compose_transaction[txname];
+  hexString:output[`result][`params][`transaction];
+  .factomd.factoid_submit[hexString]
+ };
+
+
+trans_fact_ec:{[txname;input;outputEC;quantity]
+  Data:new_transaction[txname];
+  Data:add_input[txname;input;quantity];
+  Data:add_ec_output[txname;outputEC;quantity];
+  Data:sub_fee[txname;outputEC];
+  Data:sign_transaction[txname];
+  output:compose_transaction[txname];
+  hexString:output[`result][`params][`transaction];
+  .factomd.factoid_submit[hexString]
+ };
+ 
+ 
 properties:{[]
   body:defaultPayload[];
   body[`method]:"properties";
