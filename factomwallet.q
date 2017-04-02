@@ -237,6 +237,50 @@ trans_fact_ec:{[txname;input;outputEC;quantity]
   .factomd.factoid_submit[hexString]
  };
  
+/////////////////////////////////////////////////////////////////////////////
+// create_factom_chain[ecAddr;("Database Name";"Database Path";"Table Name";"datetime";"Authentication");"Each entry on this chain is the hash of a Table"]
+/////////////////////////////////////////////////////////////////////////////
+create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString]
+
+  txid:entryhash:"Empty";	
+  composeChainResult:compose_chain[entryCreditAddress;.util.asciiToHex each externalIDStringList;.util.asciiToHex contentsString];
+  $[`error in key composeChainResult;
+     [
+      -2 "Error: compose_chain function call failed";
+      -2 "Error Message: ",composeChainResult[`error][`message];
+      :()
+     ];
+     -1 "Compose chain command successful"
+  ];
+
+  commitChainResult:commit_chain[composeChainResult[`result][`commit][`params][`message]];
+  $[`error in key commitChainResult;
+    [
+     -2 "Error: commit_chain function call failed";
+     -2 "Error Message: ",commitChainResult[`error][`message];
+     :()
+    ];
+    [
+     -1 commitChainResult[`result][`message];
+     txid:commitChainResult[`result][`txid]
+    ]
+  ];
+   
+  revealChainResult:reveal_chain[composeChainResult[`result][`reveal][`params][`entry]];
+  $[`error in key revealChainResult;
+    [
+     -2 "Error: reveal_chain function call failed";
+     -2 "Error Message: ",revealChainResult[`error][`message];
+     :()
+    ];
+    [
+     -1 revealChainResult[`result][`message];
+     entryhash:revealChainResult[`result][`entryhash]
+    ]
+  ];
+  `txid`entryhash!(txid;entryhash)  
+ };	
+ 
  
 properties:{[]
   body:defaultPayload[];
