@@ -11,5 +11,5 @@ millions of records to be secured quickly and safely on the blockchain.
 
 Use cases:
 
-Securing IoT data
-Securing private blockchain through the use of anchoring
+* Securing IoT data
+* Securing private blockchain through the use of anchoring
