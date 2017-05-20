@@ -27,198 +27,198 @@ postCmd:{[appName;body]
  };
 
 
-directory_block:{[keyMerkleRoot]
+directory_block:{[keyMerkleRoot;callback]
   body:defaultPayload[];
   body[`method]:"directory-block";
   body[`params]:(enlist `KeyMR)!(enlist keyMerkleRoot);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-directory_block_head:{[]
+directory_block_head:{[callback]
   body:defaultPayload[];
   body[`method]:"directory-block-head";
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-heights:{[]
+heights:{[callback]
   body:defaultPayload[];
   body[`method]:"heights";
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-raw_data:{[hash]
+raw_data:{[hash;callback]
   body:defaultPayload[];
   body[`method]:"raw-data";
   body[`params]:(enlist `hash)!(enlist hash);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-dblock_by_height:{[height]
+dblock_by_height:{[height;callback]
   body:defaultPayload[];
   body[`method]:"dblock-by-height";
   body[`params]:(enlist `height)!(enlist height);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-ablock_by_height:{[height]
+ablock_by_height:{[height;callback]
   body:defaultPayload[];
   body[`method]:"ablock-by-height";
   body[`params]:(enlist `height)!(enlist height);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-ecblock_by_height:{[height]
+ecblock_by_height:{[height;callback]
   body:defaultPayload[];
   body[`method]:"ecblock-by-height";
   body[`params]:(enlist `height)!(enlist height);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-fblock_by_height:{[height]
+fblock_by_height:{[height;callback]
   body:defaultPayload[];
   body[`method]:"fblock-by-height";
   body[`params]:(enlist `height)!(enlist height);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-receipt:{[merkleRootKey]
+receipt:{[merkleRootKey;callback]
   body:defaultPayload[];
   body[`method]:"receipt";
   body[`params]:(enlist `hash)!(enlist merkleRootKey);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-entry:{[entryHash]
+entry:{[entryHash;callback]
   body:defaultPayload[];
   body[`method]:"entry";
   body[`params]:(enlist `Hash)!(enlist entryHash);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-pending_entries:{[transactionHash]
+pending_entries:{[transactionHash;callback]
   body:defaultPayload[];
   body[`method]:"pending-entries";
   body[`params]:()!();
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-transaction:{[transactionHash]
+transaction:{[transactionHash;callback]
   body:defaultPayload[];
   body[`method]:"transaction";
   body[`params]:(enlist `hash)!(enlist transactionHash);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-factoid_ack:{[txID]
+factoid_ack:{[txID;callback]
   body:defaultPayload[];
   body[`method]:"factoid-ack";
   body[`params]:(enlist `TxID)!(enlist txID);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-entry_ack:{[txID]
+entry_ack:{[txID;callback]
   body:defaultPayload[];
   body[`method]:"entry-ack";
   body[`params]:(enlist `TxID)!(enlist txID);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-pending_transactions:{[entryCreditAddress]
+pending_transactions:{[entryCreditAddress;callback]
   body:defaultPayload[];
   body[`method]:"pending-transactions";
   body[`params]:(enlist `Address)!(enlist entryCreditAddress);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-chain_head:{[chainID]
+chain_head:{[chainID;callback]
   body:defaultPayload[];
   body[`method]:"chain-head";
   body[`params]:(enlist `ChainID)!(enlist chainID);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-entry_credit_balance:{[entryCreditAddress]
+entry_credit_balance:{[entryCreditAddress;callback]
   body:defaultPayload[];
   body[`method]:"entry-credit-balance";
   body[`params]:(enlist `address)!(enlist entryCreditAddress);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-factoid_balance:{[factoidAddress]
+factoid_balance:{[factoidAddress;callback]
   body:defaultPayload[];
   body[`method]:"factoid-balance";
   body[`params]:(enlist `address)!(enlist factoidAddress);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-entry_credit_rate:{[]
+entry_credit_rate:{[callback]
   body:defaultPayload[];
   body[`method]:"entry-credit-rate";
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-properties:{[]
+properties:{[callback]
   body:defaultPayload[];
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-factoid_submit:{[transactionHEX]
+factoid_submit:{[transactionHEX;callback]
   body:defaultPayload[];
   body[`method]:"factoid-submit";
   body[`params]:(enlist `transaction)!(enlist transactionHEX);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-commit_chain:{[commitChainHEX]
+commit_chain:{[commitChainHEX;callback]
   body:defaultPayload[];
   body[`method]:"commit-chain";
   body[`params]:(enlist `message)!(enlist commitChainHEX);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-reveal_chain:{[revealChainHEX]
+reveal_chain:{[revealChainHEX;callback]
   body:defaultPayload[];
   body[`method]:"reveal-chain";
   body[`params]:(enlist `entry)!(enlist revealChainHEX);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-commit_entry:{[entryCommitHEX]
+commit_entry:{[entryCommitHEX;callback]
   body:defaultPayload[];
   body[`method]:"commit-entry";
   body[`params]:(enlist `message)!(enlist entryCommitHEX);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
-reveal_entry:{[revealEntryHEX]
+reveal_entry:{[revealEntryHEX;callback]
   body:defaultPayload[];
   body[`method]:"reveal-entry";
   body[`params]:(enlist `entry)!(enlist revealEntryHEX);
-  postCmd[`factomd;body]
+  callback postCmd[`factomd;body]
  };
 
 
