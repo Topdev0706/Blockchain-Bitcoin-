@@ -227,14 +227,12 @@ compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
    body[`method]:"compose-entry";
 
    entry:enlist[`]!enlist[()];
-   entry[`chainid]:enlist chainID;
+   entry[`chainid]:chainID;
    entry[`extids]:exTids;
    entry[`content]:Content;
    entry:` _entry;
 
-   chain:(enlist `entry)!enlist entry;
-
-   body[`params]:`entry`ecpub!(chain;entryCreditAddress);
+   body[`params]:`entry`ecpub!(entry;entryCreditAddress);
    callback postCmd[`wallet;body]
  };
 
