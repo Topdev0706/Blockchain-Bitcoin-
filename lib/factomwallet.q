@@ -245,7 +245,7 @@ trans_fact_fact:{[txname;input;output;quantity;callback]
   Data:sign_transaction[txname;{x}];
   output:compose_transaction[txname;{x}];
   hexString:output[`result][`params][`transaction];
-  callback .factomd.factoid_submit[hexString]
+  callback .factomd.factoid_submit[hexString;{x}]
  };
 
 
@@ -257,7 +257,7 @@ trans_fact_ec:{[txname;input;outputEC;quantity;callback]
   Data:sign_transaction[txname;{x}];
   output:compose_transaction[txname;{x}];
   hexString:output[`result][`params][`transaction];
-  callback .factomd.factoid_submit[hexString]
+  callback .factomd.factoid_submit[hexString;{x}]
  };
  
 /////////////////////////////////////////////////////////////////////////////
