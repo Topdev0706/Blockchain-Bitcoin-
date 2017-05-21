@@ -214,6 +214,23 @@ reveal_chain:{[entry;callback]
  };
 
 
+compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
+   body:defaultPayload[];
+   body[`method]:"compose-entry";
+
+   entry:enlist[`]!enlist[()];
+   entry[`chainid]:enlist chainID;
+   entry[`extids]:exTids;
+   entry[`content]:Content;
+   entry:` _entry;
+
+   chain:(enlist `entry)!enlist entry;
+
+   body[`params]:`entry`ecpub!(chain;entryCreditAddress);
+   callback postCmd[`wallet;body]
+ };
+
+
 trans_fact_fact:{[txname;input;output;quantity;callback]
   Data:new_transaction[txname;{x}];
   Data:add_input[txname;input;quantity;{x}];
