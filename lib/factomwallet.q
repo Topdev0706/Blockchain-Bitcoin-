@@ -239,7 +239,7 @@ trans_fact_ec:{[txname;input;outputEC;quantity;callback]
  
 /////////////////////////////////////////////////////////////////////////////
 // create_factom_chain[ecAddr;("Database Name";"Database Path";"Table Name";"datetime";"Authentication");"Each entry on this chain is the hash of a Table"]
-/////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;callback]
 
   txid:entryhash:"Empty";	
@@ -253,7 +253,7 @@ create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;cal
      -1 "Compose chain command successful"
   ];
 
-  commitChainResult:commit_chain[composeChainResult[`result][`commit][`params][`message];{x}];
+  commitChainResult:.factomd.commit_chain[composeChainResult[`result][`commit][`params][`message];{x}];
   $[`error in key commitChainResult;
     [
      -2 "Error: commit_chain function call failed";
@@ -266,7 +266,7 @@ create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;cal
     ]
   ];
    
-  revealChainResult:reveal_chain[composeChainResult[`result][`reveal][`params][`entry];{x}];
+  revealChainResult:.factomd.reveal_chain[composeChainResult[`result][`reveal][`params][`entry];{x}];
   $[`error in key revealChainResult;
     [
      -2 "Error: reveal_chain function call failed";
@@ -281,6 +281,46 @@ create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;cal
   callback `txid`entryhash!(txid;entryhash)  
  };	
  
+
+append_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;chainID;callback]
+
+  composeEntryResult:compose_entry[entryCreditAddress;.util.asciiToHex each externalIDStringList;contentString;chainID;{x}];
+  $[`error in key composeEntryResult;
+     [
+      -2 "Error: compose_entry function call failed";
+      -2 "Error Message: ",composeEntryResult[`error][`message];
+      :()
+     ];
+     -1 "Compose entry command successful"
+  ];
+  
+  commitEntryResult:.factomd.commit_entry[composeEntryResult[`result][`commit][`params][`message];{x}];
+  $[`error in key commitEntryResult;
+    [ 
+     -2 "Error: commit_entry function call failed";
+     -2 "Error Message: ",commitEntryResult[`error][`message];
+     :()
+    ];
+    [
+     -1 commitEntryResult[`result][`message];
+     txid:commitEntryResult[`result][`txid]
+    ]
+  ];
+
+  revealEntryResult:.factomd.reveal_chain[composeChainResult[`result][`reveal][`params][`entry];{x}];
+  $[`error in key revealEntryResult;
+    [
+     -2 "Error: reveal_entry function call failed";
+     -2 "Error Message: ",revealEntryResult[`error][`message];
+     :()
+    ];
+    [
+     -1 revealChainResult[`result][`message];
+     entryhash:revealEntryResult[`result][`entryhash]
+    ]
+  ];
+  callback `txid`entryhash!(txid;entryhash)  
+ }
  
 properties:{[callback]
   body:defaultPayload[];
