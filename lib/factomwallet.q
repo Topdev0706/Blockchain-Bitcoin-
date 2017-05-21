@@ -281,7 +281,7 @@ create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;cal
   callback `txid`entryhash!(txid;entryhash)  
  };	
  
-
+ 
 append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chainID;callback]
 
   composeEntryResult:compose_entry[entryCreditAddress;.util.asciiToHex each externalIDStringList;contentString;chainID;{x}];
@@ -307,7 +307,7 @@ append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chai
     ]
   ];
 
-  revealEntryResult:.factomd.reveal_chain[composeChainResult[`result][`reveal][`params][`entry];{x}];
+  revealEntryResult:.factomd.reveal_chain[composeEntryResult[`result][`reveal][`params][`entry];{x}];
   $[`error in key revealEntryResult;
     [
      -2 "Error: reveal_entry function call failed";
@@ -315,13 +315,14 @@ append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chai
      :()
     ];
     [
-     -1 revealChainResult[`result][`message];
+     -1 revealEntryResult[`result][`message];
      entryhash:revealEntryResult[`result][`entryhash]
     ]
   ];
   callback `txid`entryhash!(txid;entryhash)  
  }
- 
+  
+  
 properties:{[callback]
   body:defaultPayload[];
   body[`method]:"properties";
