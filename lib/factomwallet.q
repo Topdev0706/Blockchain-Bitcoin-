@@ -282,7 +282,7 @@ create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;cal
  };	
  
 
-append_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;chainID;callback]
+append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chainID;callback]
 
   composeEntryResult:compose_entry[entryCreditAddress;.util.asciiToHex each externalIDStringList;contentString;chainID;{x}];
   $[`error in key composeEntryResult;
