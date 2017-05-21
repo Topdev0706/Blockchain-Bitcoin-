@@ -214,6 +214,14 @@ reveal_chain:{[entry;callback]
  };
 
 
+reveal_entry:{[entry;callback]
+  body:defaultPayload[];
+  body[`method]:"reveal-entry";
+  body[`params]:(enlist `entry)!(enlist entry);
+  callback postCmd[`factomd;body]
+ };
+
+
 compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
    body:defaultPayload[];
    body[`method]:"compose-entry";
@@ -324,7 +332,7 @@ append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chai
     ]
   ];
 
-  revealEntryResult:.factomd.reveal_chain[composeEntryResult[`result][`reveal][`params][`entry];{x}];
+  revealEntryResult:.factomd.reveal_entry[composeEntryResult[`result][`reveal][`params][`entry];{x}];
   $[`error in key revealEntryResult;
     [
      -2 "Error: reveal_entry function call failed";
