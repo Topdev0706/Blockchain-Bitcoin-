@@ -11,5 +11,7 @@ millions of records to be secured quickly and safely on the blockchain.
 
 Use cases:
 
-* Securing IoT data
-* Securing private blockchain through the use of anchoring
+* Securing large data sets. For example, IoT data
+* Securing private blockchains through the use of anchoring
+* Providing a proof of receipt mechanism
+* Publication of clear text data. For example, stock market prices https://explorer.factom.org/chain/0464bf13a66ed62d8196c51292caedaecbd8dfe245acdbd1aafdac9ed9d77b1b
