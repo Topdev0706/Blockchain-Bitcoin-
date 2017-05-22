@@ -89,12 +89,20 @@ fblock_by_height:{[height;callback]
  };
 
 
-receipt:{[merkleRootKey;callback]
+receipt:{[hash;callback]
   body:defaultPayload[];
   body[`method]:"receipt";
-  body[`params]:(enlist `hash)!(enlist merkleRootKey);
+  body[`params]:(enlist `hash)!(enlist hash);
   callback postCmd[`factomd;body]
- };
+  };
+
+
+entry_block:{[keyMR;callback]
+  body:defaultPayload[];
+  body[`method]:"entry-block";
+  body[`params]:(enlist `keyMR)!(enlist keyMR);
+  callback postCmd[`factomd;body]
+ }
 
 
 entry:{[entryHash;callback]
