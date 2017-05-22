@@ -183,18 +183,15 @@ compose_transaction:{[transactionName;callback]
 
 
 compose_chain:{[entryCreditAddress;exTids;Content;callback]
-   body:defaultPayload[];
-   body[`method]:"compose-chain";
-
-   firstEntry:enlist[`]!enlist[()];
-   firstEntry[`extids]:exTids;
-   firstEntry[`content]:Content;
-   firstEntry:` _firstEntry;
-
-   chain:(enlist `firstentry)!enlist firstEntry;
-
-   body[`params]:`chain`ecpub!(chain;entryCreditAddress);
-   callback postCmd[`wallet;body]
+  body:defaultPayload[];
+  body[`method]:"compose-chain";
+  firstEntry:enlist[`]!enlist[()];
+  firstEntry[`extids]:exTids;
+  firstEntry[`content]:Content;
+  firstEntry:` _firstEntry;
+  chain:(enlist `firstentry)!enlist firstEntry;
+  body[`params]:`chain`ecpub!(chain;entryCreditAddress);
+  callback postCmd[`wallet;body]
  };
 
 
@@ -223,17 +220,15 @@ reveal_entry:{[entry;callback]
 
 
 compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
-   body:defaultPayload[];
-   body[`method]:"compose-entry";
-
-   entry:enlist[`]!enlist[()];
-   entry[`chainid]:chainID;
-   entry[`extids]:exTids;
-   entry[`content]:Content;
-   entry:` _entry;
-
-   body[`params]:`entry`ecpub!(entry;entryCreditAddress);
-   callback postCmd[`wallet;body]
+  body:defaultPayload[];
+  body[`method]:"compose-entry";
+  entry:enlist[`]!enlist[()];
+  entry[`chainid]:chainID;
+  entry[`extids]:exTids;
+  entry[`content]:Content;
+  entry:` _entry;
+  body[`params]:`entry`ecpub!(entry;entryCreditAddress);
+  callback postCmd[`wallet;body]
  };
 
 
@@ -266,7 +261,7 @@ trans_fact_ec:{[txname;input;outputEC;quantity;callback]
 create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;callback]
 
   txid:entryhash:"Empty";	
-  composeChainResult:compose_chain[entryCreditAddress;.util.asciiToHex each externalIDStringList;.util.asciiToHex contentsString;{x}];
+  composeChainResult:compose_chain[entryCreditAddress;externalIDStringList;contentsString;{x}];
   $[`error in key composeChainResult;
      [
       -2 "Error: compose_chain function call failed";
@@ -307,7 +302,7 @@ create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;cal
  
 append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chainID;callback]
 
-  composeEntryResult:compose_entry[entryCreditAddress;.util.asciiToHex each externalIDStringList;contentString;chainID;{x}];
+  composeEntryResult:compose_entry[entryCreditAddress;externalIDStringList;contentString;chainID;{x}];
   $[`error in key composeEntryResult;
      [
       -2 "Error: compose_entry function call failed";
