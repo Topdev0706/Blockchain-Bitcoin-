@@ -14,6 +14,7 @@ Use cases:
 * Securing large data sets. For example, IoT data
 * Securing private blockchains through the use of anchoring
 * Providing a proof of receipt mechanism
-* Making data public - Publication of clear text data. For example, stock market prices https://explorer.factom.org/chain/0464bf13a66ed62d8196c51292caedaecbd8dfe245acdbd1aafdac9ed9d77b1b
+* Making data public.
+   See Publication of clear text data. For example, stock market prices https://explorer.factom.org/chain/0464bf13a66ed62d8196c51292caedaecbd8dfe245acdbd1aafdac9ed9d77b1b
 * Acting as a smart contract oracle. 
-  See https://www.factom.com/blog/smartcontract-factom-announce-collaboration
+   See https://www.factom.com/blog/smartcontract-factom-announce-collaboration
