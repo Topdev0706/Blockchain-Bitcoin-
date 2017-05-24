@@ -17,7 +17,9 @@ See https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-
 * Securing private blockchains through the use of anchoring.
 See http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf
 * Providing a proof of receipt mechanism.
-* Making data public. For example, stock market prices https://explorer.factom.org/chain/0464bf13a66ed62d8196c51292caedaecbd8dfe245acdbd1aafdac9ed9d77b1b
+* Making data public. For example, stock market prices.
+  See https://www.factom.com/blog/intrinio-factom-announce-collaboration
+https://explorer.factom.org/chain/0464bf13a66ed62d8196c51292caedaecbd8dfe245acdbd1aafdac9ed9d77b1b
 * Acting as a smart contract oracle. In this scenario, a smart contract (running on a decentralized network
-  such as RSK or ethereum) can use the factom bockchain to extract reliable/verifiable data and act accordingly.
+  such as RSK or ethereum) can use the factom blockchain to extract reliable/verifiable data and act accordingly.
  See https://www.factom.com/blog/smartcontract-factom-announce-collaboration
