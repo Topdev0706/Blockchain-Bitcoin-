@@ -19,6 +19,8 @@ See http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_bl
 * Providing a proof of receipt mechanism.
 * Making data public. For example, stock market prices.
   See https://www.factom.com/blog/intrinio-factom-announce-collaboration
+  The following link is to the Factom blockchain explorer with the lookup showing a
+  sample Intrinio market data entry block
 https://explorer.factom.org/chain/0464bf13a66ed62d8196c51292caedaecbd8dfe245acdbd1aafdac9ed9d77b1b
 * Acting as a smart contract oracle. In this scenario, a smart contract (running on a decentralized network
   such as RSK or ethereum) can use the factom blockchain to extract reliable/verifiable data and act accordingly.
