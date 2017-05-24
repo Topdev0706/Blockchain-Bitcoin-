@@ -1,5 +1,6 @@
 # qfactom
-kdb+ library designed to interact with the factomd client API and factom-walletd API.
+kdb+ library designed to interact with the Factom Blockchain via 
+the factomd client REST API and factom wallet REST API.
 
 Library enables
 * Transactions: Both factoid->factoid and factoid->entry credit
