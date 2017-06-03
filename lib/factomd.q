@@ -113,7 +113,7 @@ entry:{[entryHash;callback]
  };
 
 
-pending_entries:{[transactionHash;callback]
+pending_entries:{[callback]
   body:defaultPayload[];
   body[`method]:"pending-entries";
   body[`params]:()!();
