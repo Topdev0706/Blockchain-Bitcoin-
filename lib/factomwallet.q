@@ -195,30 +195,6 @@ compose_chain:{[entryCreditAddress;exTids;Content;callback]
  };
 
 
-commit_chain:{[message;callback]
-  body:defaultPayload[];
-  body[`method]:"commit-chain";
-  body[`params]:(enlist `message)!(enlist message);
-  callback postCmd[`factomd;body]
- };
-
-
-reveal_chain:{[entry;callback]
-  body:defaultPayload[];
-  body[`method]:"reveal-chain";
-  body[`params]:(enlist `entry)!(enlist entry);
-  callback postCmd[`factomd;body]
- };
-
-
-reveal_entry:{[entry;callback]
-  body:defaultPayload[];
-  body[`method]:"reveal-entry";
-  body[`params]:(enlist `entry)!(enlist entry);
-  callback postCmd[`factomd;body]
- };
-
-
 compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
   body:defaultPayload[];
   body[`method]:"compose-entry";
