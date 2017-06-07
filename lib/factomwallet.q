@@ -10,6 +10,7 @@ hostLookup:()!();
 hostLookup[`factomd]:`:http://localhost:8088/v2;
 hostLookup[`wallet]:`:http://localhost:8089/v2;
 
+timeout:$[.z.o in `w32`w64;"timeout 20 > NUL";.z.o in `l32`l65;"sleep 20";""]
 
 defaultPayload:{
   payload:enlist[`]!enlist[()];
@@ -259,7 +260,8 @@ create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;cal
      txid:commitChainResult[`result][`txid]
     ]
   ];
-   
+  
+  system timeout; 
   revealChainResult:.factomd.reveal_chain[composeChainResult[`result][`reveal][`params][`entry];{x}];
   $[`error in key revealChainResult;
     [
@@ -301,6 +303,7 @@ append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chai
     ]
   ];
 
+  system timeout;
   revealEntryResult:.factomd.reveal_entry[composeEntryResult[`result][`reveal][`params][`entry];{x}];
   $[`error in key revealEntryResult;
     [
