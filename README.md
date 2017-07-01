@@ -1,6 +1,6 @@
 # qfactom
 kdb+ API library designed to interact with the Factom blockchain via 
-the factomd client REST API and factom wallet REST API. For usage instructions see [https://github.com/jlucid/qfactom/wiki](wiki) pages.
+the factomd client REST API and factom wallet REST API. For usage instructions see [wiki](https://github.com/jlucid/qfactom/wiki) pages.
 
 Library enables
 * Transactions: Both factoid->factoid and factoid->entry credit
