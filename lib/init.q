@@ -1,3 +1,6 @@
-.utl.require .utl.PKGLOADING,"/utils.q"
+.utl.require .utl.PKGLOADING,"/factomdTbls.q"
+.utl.require .utl.PKGLOADING,"/factomdUpd.q"
 .utl.require .utl.PKGLOADING,"/factomd.q"
+.utl.require .utl.PKGLOADING,"/factomwalletTbls.q"
+.utl.require .utl.PKGLOADING,"/factomwalletUpd.q"
 .utl.require .utl.PKGLOADING,"/factomwallet.q"
