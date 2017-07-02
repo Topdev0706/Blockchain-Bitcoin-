@@ -19,17 +19,17 @@ defaultPayload:{
   payload[`method]:"properties";
   payload[`params]:"";
   1 _payload
- };
+ }
 
 
 getCmd:{[appName;body]
   .j.k .Q.hg[hostLookup[appName];"Content-Type: text/plain"] .j.j body
- };
+ }
 
 
 postCmd:{[appName;body]
   .j.k .Q.hp[hostLookup[appName];"Content-Type: text/plain"] .j.j body
- };
+ }
 
 
 address:{[factoidAddress;callback]
@@ -37,7 +37,7 @@ address:{[factoidAddress;callback]
   body[`method]:"address";
   body[`params]:(enlist `address)!(enlist factoidAddress);
   callback getCmd[`wallet;body]
- };
+ }
 
 
 all_addresses:{[callback]
@@ -45,7 +45,7 @@ all_addresses:{[callback]
   body[`method]:"all-addresses";
   body[`params]:"";
   callback getCmd[`wallet;body]
- };
+ }
 
 
 generate_ec_address:{[callback]
@@ -53,7 +53,7 @@ generate_ec_address:{[callback]
   body[`method]:"generate-ec-address";
   body[`params]:"";
   callback getCmd[`wallet;body]
- };
+ }
 
 
 generate_factoid_address:{[callback]
@@ -61,7 +61,7 @@ generate_factoid_address:{[callback]
   body[`method]:"generate-factoid-address";
   body[`params]:"";
   callback getCmd[`wallet;body]
- };
+ }
 
 
 get_height:{[callback]
@@ -69,22 +69,20 @@ get_height:{[callback]
   body[`method]:"get-height";
   body[`params]:"";
   callback getCmd[`wallet;body]
- };
+ }
 
 
 import_addresses:{[privateAddresses;callback]
   body:defaultPayload[];
   body[`method]:"import-addresses";
-
   if[10h~type privateAddresses & 52~count privateAddresses; 
       privateAddresses:enlist privateAddresses;
   ];
-
   if[0h~type privateAddresses; 
     body[`params]:(enlist `addresses)!enlist ({(enlist `secret)!(enlist x)} each privateAddresses);
   ];
   callback getCmd[`wallet;body]
- };
+ }
 
 
 import_koinify:{[passPhrase;callback]
@@ -92,7 +90,7 @@ import_koinify:{[passPhrase;callback]
   body[`method]:"import-koinify";
   body[`params]:(enlist `words)!(enlist passPhrase);
   callback getCmd[`wallet;body]
- };
+ }
 
 
 wallet_backup:{[callback]
@@ -100,7 +98,7 @@ wallet_backup:{[callback]
   body[`method]:"wallet-backup";
   body[`params]:"";
   callback getCmd[`wallet;body]
- };
+ }
 
 
 tmp_transactions:{[callback]
@@ -108,7 +106,7 @@ tmp_transactions:{[callback]
   body[`method]:"tmp-transactions";
   body[`params]:"";
   callback postCmd[`wallet;body]
- };
+ }
 
 
 delete_transaction:{[transactionName;callback]
@@ -116,7 +114,7 @@ delete_transaction:{[transactionName;callback]
   body[`method]:"delete-transaction";
   body[`params]:(enlist `$"tx-name")!(enlist transactionName);
   callback getCmd[`wallet;body]
- };
+ }
 
 
 new_transaction:{[transactionName;callback]
@@ -124,7 +122,7 @@ new_transaction:{[transactionName;callback]
   body[`method]:"new-transaction";
   body[`params]:(enlist `$"tx-name")!(enlist transactionName);
   callback getCmd[`wallet;body]
- };
+ }
 
 
 add_input:{[transactionName;publicAddress;numFactoshis;callback]
@@ -132,7 +130,7 @@ add_input:{[transactionName;publicAddress;numFactoshis;callback]
   body[`method]:"add-input";
   body[`params]:(`$"tx-name";`address;`amount)!(transactionName;publicAddress;numFactoshis);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 add_output:{[transactionName;factoidAddress;numFactoshis;callback]
@@ -140,7 +138,7 @@ add_output:{[transactionName;factoidAddress;numFactoshis;callback]
   body[`method]:"add-output";
   body[`params]:(`$"tx-name";`address;`amount)!(transactionName;factoidAddress;numFactoshis);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 add_ec_output:{[transactionName;entryCreditAddress;numFactoshis;callback]
@@ -148,7 +146,7 @@ add_ec_output:{[transactionName;entryCreditAddress;numFactoshis;callback]
   body[`method]:"add-ec-output";
   body[`params]:(`$"tx-name";`address;`amount)!(transactionName;entryCreditAddress;numFactoshis);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 add_fee:{[transactionName;factoidAddress;callback]
@@ -156,7 +154,7 @@ add_fee:{[transactionName;factoidAddress;callback]
   body[`method]:"add-fee";
   body[`params]:(`$"tx-name";`address)!(transactionName;factoidAddress);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 sub_fee:{[transactionName;factoidAddress;callback]
@@ -164,7 +162,7 @@ sub_fee:{[transactionName;factoidAddress;callback]
   body[`method]:"sub-fee";
   body[`params]:(`$"tx-name";`address)!(transactionName;factoidAddress);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 sign_transaction:{[transactionName;callback]
@@ -172,7 +170,7 @@ sign_transaction:{[transactionName;callback]
   body[`method]:"sign-transaction";
   body[`params]:(enlist `$"tx-name")!(enlist transactionName);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 compose_transaction:{[transactionName;callback]
@@ -180,7 +178,7 @@ compose_transaction:{[transactionName;callback]
   body[`method]:"compose-transaction";
   body[`params]:(enlist `$"tx-name")!(enlist transactionName);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 compose_chain:{[entryCreditAddress;exTids;Content;callback]
@@ -193,7 +191,7 @@ compose_chain:{[entryCreditAddress;exTids;Content;callback]
   chain:(enlist `firstentry)!enlist firstEntry;
   body[`params]:`chain`ecpub!(chain;entryCreditAddress);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
@@ -206,7 +204,7 @@ compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
   entry:` _entry;
   body[`params]:`entry`ecpub!(entry;entryCreditAddress);
   callback postCmd[`wallet;body]
- };
+ }
 
 
 trans_fact_fact:{[txname;input;output;quantity;callback]
@@ -218,7 +216,7 @@ trans_fact_fact:{[txname;input;output;quantity;callback]
   Data:compose_transaction[txname;{x}];
   hexString:Data[`result][`params][`transaction];
   .factomd.factoid_submit[hexString;{x}]
- };
+ }
 
 
 trans_fact_ec:{[txname;input;outputEC;quantity;callback]
@@ -230,92 +228,43 @@ trans_fact_ec:{[txname;input;outputEC;quantity;callback]
   Data:compose_transaction[txname;{x}];
   hexString:Data[`result][`params][`transaction];
   .factomd.factoid_submit[hexString;{x}]
- };
+ }
  
-/////////////////////////////////////////////////////////////////////////////
-// create_factom_chain[ecAddr;("Database Name";"Database Path";"Table Name";"datetime";"Authentication");"Each entry on this chain is the hash of a Table"]
-////////////////////////////////////////////////////////////////////////////
+
+errorCheck:{[output]
+  $[`error in key output;
+    [
+    -2 "Error Message: ",output[`error][`message];
+    1b
+    ];    
+    0b
+  ]
+ } 
+
 create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;callback]
-
-  txid:entryhash:"Empty";	
   composeChainResult:compose_chain[entryCreditAddress;externalIDStringList;contentsString;{x}];
-  $[`error in key composeChainResult;
-     [
-      -2 "Error: compose_chain function call failed";
-      -2 "Error Message: ",composeChainResult[`error][`message];
-      :()
-     ];
-     -1 "Compose chain command successful"
-  ];
-
+  if[errorCheck[composeChainResult];:()];
   commitChainResult:.factomd.commit_chain[composeChainResult[`result][`commit][`params][`message];{x}];
-  $[`error in key commitChainResult;
-    [
-     -2 "Error: commit_chain function call failed";
-     -2 "Error Message: ",commitChainResult[`error][`message];
-     :()
-    ];
-    [
-     -1 commitChainResult[`result][`message];
-     txid:commitChainResult[`result][`txid]
-    ]
-  ];
-  
+  if[errorCheck[commitChainResult];:()];
+  txid:commitChainResult[`result][`txid];
   system timeout; 
   revealChainResult:.factomd.reveal_chain[composeChainResult[`result][`reveal][`params][`entry];{x}];
-  $[`error in key revealChainResult;
-    [
-     -2 "Error: reveal_chain function call failed";
-     -2 "Error Message: ",revealChainResult[`error][`message];
-     :()
-    ];
-    [
-     -1 revealChainResult[`result][`message];
-     entryhash:revealChainResult[`result][`entryhash]
-    ]
-  ];
+  if[errorCheck[revealChainResult];:()];
+  entryhash:revealChainResult[`result][`entryhash];
   callback `txid`entryhash!(txid;entryhash)  
- };	
- 
+ }	
+
  
 append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chainID;callback]
-
   composeEntryResult:compose_entry[entryCreditAddress;externalIDStringList;contentString;chainID;{x}];
-  $[`error in key composeEntryResult;
-     [
-      -2 "Error: compose_entry function call failed";
-      -2 "Error Message: ",composeEntryResult[`error][`message];
-      :()
-     ];
-     -1 "Compose entry command successful"
-  ];
-  
+  if[errorCheck[composeEntryResult];:()];
   commitEntryResult:.factomd.commit_entry[composeEntryResult[`result][`commit][`params][`message];{x}];
-  $[`error in key commitEntryResult;
-    [ 
-     -2 "Error: commit_entry function call failed";
-     -2 "Error Message: ",commitEntryResult[`error][`message];
-     :()
-    ];
-    [
-     -1 commitEntryResult[`result][`message];
-     txid:commitEntryResult[`result][`txid]
-    ]
-  ];
-
+  if[errorCheck[commitEntryResult];()];
+  txid:commitEntryResult[`result][`txid];
   system timeout;
   revealEntryResult:.factomd.reveal_entry[composeEntryResult[`result][`reveal][`params][`entry];{x}];
-  $[`error in key revealEntryResult;
-    [
-     -2 "Error: reveal_entry function call failed";
-     -2 "Error Message: ",revealEntryResult[`error][`message];
-     :()
-    ];
-    [
-     -1 revealEntryResult[`result][`message];
-     entryhash:revealEntryResult[`result][`entryhash]
-    ]
-  ];
+  if[errorCheck[revealEntryResult];()];
+  entryhash:revealEntryResult[`result][`entryhash];
   callback `txid`entryhash!(txid;entryhash)  
  }
   
@@ -325,6 +274,6 @@ properties:{[callback]
   body[`method]:"properties";
   body[`params]:"";
   callback getCmd[`wallet;body]
- };
+ }
 
 \d .

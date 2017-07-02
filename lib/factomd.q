@@ -19,12 +19,12 @@ defaultPayload:{
   payload[`method]:"properties";
   payload[`params]:"";
   1 _payload
- };
+ }
 
 
 postCmd:{[appName;body]
   .j.k .Q.hp[hostLookup[appName];"Content-Type: text/plain"]  .j.j body
- };
+ }
 
 
 directory_block:{[keyMerkleRoot;callback]
@@ -32,21 +32,21 @@ directory_block:{[keyMerkleRoot;callback]
   body[`method]:"directory-block";
   body[`params]:(enlist `KeyMR)!(enlist keyMerkleRoot);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 directory_block_head:{[callback]
   body:defaultPayload[];
   body[`method]:"directory-block-head";
   callback postCmd[`factomd;body]
- };
+ }
 
 
 heights:{[callback]
   body:defaultPayload[];
   body[`method]:"heights";
   callback postCmd[`factomd;body]
- };
+ }
 
 
 raw_data:{[hash;callback]
@@ -54,7 +54,7 @@ raw_data:{[hash;callback]
   body[`method]:"raw-data";
   body[`params]:(enlist `hash)!(enlist hash);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 dblock_by_height:{[height;callback]
@@ -62,7 +62,7 @@ dblock_by_height:{[height;callback]
   body[`method]:"dblock-by-height";
   body[`params]:(enlist `height)!(enlist height);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 ablock_by_height:{[height;callback]
@@ -70,7 +70,7 @@ ablock_by_height:{[height;callback]
   body[`method]:"ablock-by-height";
   body[`params]:(enlist `height)!(enlist height);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 ecblock_by_height:{[height;callback]
@@ -78,7 +78,7 @@ ecblock_by_height:{[height;callback]
   body[`method]:"ecblock-by-height";
   body[`params]:(enlist `height)!(enlist height);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 fblock_by_height:{[height;callback]
@@ -86,7 +86,7 @@ fblock_by_height:{[height;callback]
   body[`method]:"fblock-by-height";
   body[`params]:(enlist `height)!(enlist height);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 receipt:{[hash;callback]
@@ -94,7 +94,7 @@ receipt:{[hash;callback]
   body[`method]:"receipt";
   body[`params]:(enlist `hash)!(enlist hash);
   callback postCmd[`factomd;body]
-  };
+  }
 
 
 entry_block:{[keyMR;callback]
@@ -110,7 +110,7 @@ entry:{[entryHash;callback]
   body[`method]:"entry";
   body[`params]:(enlist `Hash)!(enlist entryHash);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 pending_entries:{[callback]
@@ -118,7 +118,7 @@ pending_entries:{[callback]
   body[`method]:"pending-entries";
   body[`params]:()!();
   callback postCmd[`factomd;body]
- };
+ }
 
 
 transaction:{[transactionHash;callback]
@@ -126,7 +126,7 @@ transaction:{[transactionHash;callback]
   body[`method]:"transaction";
   body[`params]:(enlist `hash)!(enlist transactionHash);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 factoid_ack:{[txID;callback]
@@ -134,7 +134,7 @@ factoid_ack:{[txID;callback]
   body[`method]:"factoid-ack";
   body[`params]:(enlist `TxID)!(enlist txID);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 entry_ack:{[txID;callback]
@@ -142,7 +142,7 @@ entry_ack:{[txID;callback]
   body[`method]:"entry-ack";
   body[`params]:(enlist `TxID)!(enlist txID);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 pending_transactions:{[entryCreditAddress;callback]
@@ -150,7 +150,7 @@ pending_transactions:{[entryCreditAddress;callback]
   body[`method]:"pending-transactions";
   body[`params]:(enlist `Address)!(enlist entryCreditAddress);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 chain_head:{[chainID;callback]
@@ -158,7 +158,7 @@ chain_head:{[chainID;callback]
   body[`method]:"chain-head";
   body[`params]:(enlist `ChainID)!(enlist chainID);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 entry_credit_balance:{[entryCreditAddress;callback]
@@ -166,7 +166,7 @@ entry_credit_balance:{[entryCreditAddress;callback]
   body[`method]:"entry-credit-balance";
   body[`params]:(enlist `address)!(enlist entryCreditAddress);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 factoid_balance:{[factoidAddress;callback]
@@ -174,20 +174,20 @@ factoid_balance:{[factoidAddress;callback]
   body[`method]:"factoid-balance";
   body[`params]:(enlist `address)!(enlist factoidAddress);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 entry_credit_rate:{[callback]
   body:defaultPayload[];
   body[`method]:"entry-credit-rate";
   callback postCmd[`factomd;body]
- };
+ }
 
 
 properties:{[callback]
   body:defaultPayload[];
   callback postCmd[`factomd;body]
- };
+ }
 
 
 factoid_submit:{[transactionHEX;callback]
@@ -195,7 +195,7 @@ factoid_submit:{[transactionHEX;callback]
   body[`method]:"factoid-submit";
   body[`params]:(enlist `transaction)!(enlist transactionHEX);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 commit_chain:{[commitChainHEX;callback]
@@ -203,7 +203,7 @@ commit_chain:{[commitChainHEX;callback]
   body[`method]:"commit-chain";
   body[`params]:(enlist `message)!(enlist commitChainHEX);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 reveal_chain:{[revealChainHEX;callback]
@@ -211,7 +211,7 @@ reveal_chain:{[revealChainHEX;callback]
   body[`method]:"reveal-chain";
   body[`params]:(enlist `entry)!(enlist revealChainHEX);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 commit_entry:{[entryCommitHEX;callback]
@@ -219,7 +219,7 @@ commit_entry:{[entryCommitHEX;callback]
   body[`method]:"commit-entry";
   body[`params]:(enlist `message)!(enlist entryCommitHEX);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 reveal_entry:{[revealEntryHEX;callback]
@@ -227,7 +227,7 @@ reveal_entry:{[revealEntryHEX;callback]
   body[`method]:"reveal-entry";
   body[`params]:(enlist `entry)!(enlist revealEntryHEX);
   callback postCmd[`factomd;body]
- };
+ }
 
 
 \d .
