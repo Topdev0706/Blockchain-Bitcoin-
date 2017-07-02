@@ -130,7 +130,7 @@ new_transaction:{[transactionName;callback]
 add_input:{[transactionName;publicAddress;numFactoshis;callback]
   body:defaultPayload[];
   body[`method]:"add-input";
-  body[`params]:(`$"tx-name";`address;amount)!(transactionName;publicAddress;numFactoshis);
+  body[`params]:(`$"tx-name";`address;`amount)!(transactionName;publicAddress;numFactoshis);
   callback postCmd[`wallet;body]
  };
 
