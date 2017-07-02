@@ -214,7 +214,7 @@ trans_fact_fact:{[txname;input;output;quantity;callback]
   Data:add_input[txname;input;quantity;{x}];
   Data:add_output[txname;output;quantity;{x}];
   Data:sub_fee[txname;output;{x}];
-  sign_transaction[txname;.factomwallet.upd.Transactions];
+  sign_transaction[txname;callback];
   Data:compose_transaction[txname;{x}];
   hexString:Data[`result][`params][`transaction];
   .factomd.factoid_submit[hexString;{x}]
@@ -226,7 +226,7 @@ trans_fact_ec:{[txname;input;outputEC;quantity;callback]
   Data:add_input[txname;input;quantity;{x}];
   Data:add_ec_output[txname;outputEC;quantity;{x}];
   Data:add_fee[txname;input;{x}];
-  sign_transaction[txname;.factomwallet.upd.Transactions];
+  sign_transaction[txname;callback];
   Data:compose_transaction[txname;{x}];
   hexString:Data[`result][`params][`transaction];
   .factomd.factoid_submit[hexString;{x}]
