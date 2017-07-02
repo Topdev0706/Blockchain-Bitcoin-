@@ -146,7 +146,7 @@ add_output:{[transactionName;factoidAddress;numFactoshis;callback]
 add_ec_output:{[transactionName;entryCreditAddress;numFactoshis;callback]
   body:defaultPayload[];
   body[`method]:"add-ec-output";
-  body[`params]:(`$"tx-name";`address;amount)!(transactionName;entryCreditAddress;numFactoshis);
+  body[`params]:(`$"tx-name";`address;`amount)!(transactionName;entryCreditAddress;numFactoshis);
   callback postCmd[`wallet;body]
  };
 
