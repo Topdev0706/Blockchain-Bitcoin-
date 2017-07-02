@@ -138,7 +138,7 @@ add_input:{[transactionName;publicAddress;numFactoshis;callback]
 add_output:{[transactionName;factoidAddress;numFactoshis;callback]
   body:defaultPayload[];
   body[`method]:"add-output";
-  body[`params]:(`$"tx-name";`address;amount)!(transactionName;factoidAddress;numFactoshis);
+  body[`params]:(`$"tx-name";`address;`amount)!(transactionName;factoidAddress;numFactoshis);
   callback postCmd[`wallet;body]
  };
 
