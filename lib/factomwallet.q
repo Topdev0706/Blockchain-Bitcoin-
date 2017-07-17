@@ -272,7 +272,6 @@ append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chai
 properties:{[callback]
   body:defaultPayload[];
   body[`method]:"properties";
-  body[`params]:"";
   callback getCmd[`wallet;body]
  }
 
