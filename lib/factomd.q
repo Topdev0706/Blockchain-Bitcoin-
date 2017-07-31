@@ -6,12 +6,12 @@ hostLookup[`wallet]:`:http://localhost:8089/v2;
 
 
 defaultPayload:{
-  payload:enlist[`]!enlist[()];
-  payload[`jsonrpc]:"2.0";
-  payload[`id]:0;
-  payload[`method]:"properties";
-  payload[`params]:"";
-  1 _payload
+  (!) . (`jsonrpc`id`method`params;("2.0";0;"properties";""))
+ }
+
+
+getCmd:{[appName;body]
+  .j.k .Q.hg[hostLookup[appName];"Content-Type: text/plain"] .j.j body
  }
 
 
