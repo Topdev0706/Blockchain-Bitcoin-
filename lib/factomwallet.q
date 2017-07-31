@@ -2,6 +2,7 @@
 
 hostLookup:`factomd`wallet!`$":http://localhost:",/:("8088/v2";"8089/v2")
 
+
 defaultPayload:{
   (!) . (`jsonrpc`id`method`params;("2.0";0;"properties";""))
  }
