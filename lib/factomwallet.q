@@ -1,15 +1,13 @@
 \d .factomwallet
 
-hostLookup:()!();
-hostLookup[`factomd]:`:http://localhost:8088/v2;
-hostLookup[`wallet]:`:http://localhost:8089/v2;
-
-timeout:$[.z.o in `w32`w64;"timeout 20 > NUL";.z.o in `l32`l65;"sleep 20";""]
-
+hostLookup:`factomd`wallet!`$":http://localhost:",/:("8088/v2";"8089/v2")
 
 defaultPayload:{
   (!) . (`jsonrpc`id`method`params;("2.0";0;"properties";""))
  }
+
+
+timeout:$[.z.o in `w32`w64;"timeout 20 > NUL";.z.o in `l32`l65;"sleep 20";""]
 
 
 address:{[factoidAddress;callback]

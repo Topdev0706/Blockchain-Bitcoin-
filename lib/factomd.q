@@ -1,8 +1,6 @@
 \d .factomd
 
-hostLookup:()!();
-hostLookup[`factomd]:`:http://localhost:8088/v2;
-hostLookup[`wallet]:`:http://localhost:8089/v2;
+hostLookup:`factomd`wallet!`$":http://localhost:",/:("8088/v2";"8089/v2")
 
 
 defaultPayload:{
