@@ -12,13 +12,13 @@ defaultPayload:{
  }
 
 
-getCmd:{[appName;body]
-  .j.k .Q.hg[hostLookup[appName];"Content-Type: text/plain"] .j.j body
+getCmd:{[hostName;body]
+  .j.k .Q.hg[hostName;"Content-Type: text/plain"] .j.j body
  }
 
 
-postCmd:{[appName;body]
-  .j.k .Q.hp[hostLookup[appName];"Content-Type: text/plain"] .j.j body
+postCmd:{[hostName;body]
+  .j.k .Q.hp[hostName;"Content-Type: text/plain"] .j.j body
  }
 
 
@@ -26,7 +26,7 @@ address:{[factoidAddress;callback]
   body:defaultPayload[];
   body[`method]:"address";
   body[`params]:(enlist `address)!(enlist factoidAddress);
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -34,7 +34,7 @@ all_addresses:{[callback]
   body:defaultPayload[];
   body[`method]:"all-addresses";
   body[`params]:"";
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -42,7 +42,7 @@ generate_ec_address:{[callback]
   body:defaultPayload[];
   body[`method]:"generate-ec-address";
   body[`params]:"";
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -50,7 +50,7 @@ generate_factoid_address:{[callback]
   body:defaultPayload[];
   body[`method]:"generate-factoid-address";
   body[`params]:"";
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -58,7 +58,7 @@ get_height:{[callback]
   body:defaultPayload[];
   body[`method]:"get-height";
   body[`params]:"";
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -71,7 +71,7 @@ import_addresses:{[privateAddresses;callback]
   if[0h~type privateAddresses; 
     body[`params]:(enlist `addresses)!enlist ({(enlist `secret)!(enlist x)} each privateAddresses);
   ];
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -79,7 +79,7 @@ import_koinify:{[passPhrase;callback]
   body:defaultPayload[];
   body[`method]:"import-koinify";
   body[`params]:(enlist `words)!(enlist passPhrase);
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -87,7 +87,7 @@ wallet_backup:{[callback]
   body:defaultPayload[];
   body[`method]:"wallet-backup";
   body[`params]:"";
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -95,7 +95,7 @@ tmp_transactions:{[callback]
   body:defaultPayload[];
   body[`method]:"tmp-transactions";
   body[`params]:"";
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -103,7 +103,7 @@ delete_transaction:{[transactionName;callback]
   body:defaultPayload[];
   body[`method]:"delete-transaction";
   body[`params]:(enlist `$"tx-name")!(enlist transactionName);
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -111,7 +111,7 @@ new_transaction:{[transactionName;callback]
   body:defaultPayload[];
   body[`method]:"new-transaction";
   body[`params]:(enlist `$"tx-name")!(enlist transactionName);
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 
@@ -119,7 +119,7 @@ add_input:{[transactionName;publicAddress;numFactoshis;callback]
   body:defaultPayload[];
   body[`method]:"add-input";
   body[`params]:(`$"tx-name";`address;`amount)!(transactionName;publicAddress;numFactoshis);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -127,7 +127,7 @@ add_output:{[transactionName;factoidAddress;numFactoshis;callback]
   body:defaultPayload[];
   body[`method]:"add-output";
   body[`params]:(`$"tx-name";`address;`amount)!(transactionName;factoidAddress;numFactoshis);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -135,7 +135,7 @@ add_ec_output:{[transactionName;entryCreditAddress;numFactoshis;callback]
   body:defaultPayload[];
   body[`method]:"add-ec-output";
   body[`params]:(`$"tx-name";`address;`amount)!(transactionName;entryCreditAddress;numFactoshis);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -143,7 +143,7 @@ add_fee:{[transactionName;factoidAddress;callback]
   body:defaultPayload[];
   body[`method]:"add-fee";
   body[`params]:(`$"tx-name";`address)!(transactionName;factoidAddress);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -151,7 +151,7 @@ sub_fee:{[transactionName;factoidAddress;callback]
   body:defaultPayload[];
   body[`method]:"sub-fee";
   body[`params]:(`$"tx-name";`address)!(transactionName;factoidAddress);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -159,7 +159,7 @@ sign_transaction:{[transactionName;callback]
   body:defaultPayload[];
   body[`method]:"sign-transaction";
   body[`params]:(enlist `$"tx-name")!(enlist transactionName);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -167,7 +167,7 @@ compose_transaction:{[transactionName;callback]
   body:defaultPayload[];
   body[`method]:"compose-transaction";
   body[`params]:(enlist `$"tx-name")!(enlist transactionName);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -180,7 +180,7 @@ compose_chain:{[entryCreditAddress;exTids;Content;callback]
   firstEntry:` _firstEntry;
   chain:(enlist `firstentry)!enlist firstEntry;
   body[`params]:`chain`ecpub!(chain;entryCreditAddress);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -193,7 +193,7 @@ compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
   entry[`content]:Content;
   entry:` _entry;
   body[`params]:`entry`ecpub!(entry;entryCreditAddress);
-  callback postCmd[`wallet;body]
+  callback postCmd[hostLookup[`wallet];body]
  }
 
 
@@ -262,7 +262,7 @@ append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chai
 properties:{[callback]
   body:defaultPayload[];
   body[`method]:"properties";
-  callback getCmd[`wallet;body]
+  callback getCmd[hostLookup[`wallet];body]
  }
 
 \d .
