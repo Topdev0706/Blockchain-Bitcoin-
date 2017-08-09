@@ -22,7 +22,7 @@ extractChain:{[head]
   result:.factomd.entry_block[head;{x[`result]}];
   if[result~"";:""];
   `entries insert result[`entrylist];
-  jsonEntries: hexToAscii each .factomd.entry[;{x[`result][`content]}] each result[`entrylist][`entryhash];
+  jsonEntries:hexToAscii each .factomd.entry[;{x[`result][`content]}] each result[`entrylist][`entryhash];
   `quoteData insert @[.j.k;;`source`quote_date`data!("";"";())] each jsonEntries;
   result[`header][`prevkeymr]
  }
