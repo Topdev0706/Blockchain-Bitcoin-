@@ -1,7 +1,7 @@
 .utl.require "qfactom"   // Or use \l factomLoad.q
 
 
-/ Define a table schema for Heights information
+/ Define a table schema to store blockchain height information
 Heights:([]
   time:`time$();
   directoryblockheight:`float$();
@@ -14,7 +14,7 @@ Heights:([]
  )
 
 
-/ Define a upd function we will use as a callback
+/ Define a upd function to use as a callback
 upd:{[Data]
   `Heights insert Data[`result],(!) . enlist@'(`time;.z.t);
  }
