@@ -14,7 +14,7 @@ Heights:([]
  )
 
 
-/ Define a upd function to be used as a callback
+/ Define a upd function to use as a callback
 upd:{[Data]
   `Heights insert Data[`result],(!) . enlist@'(`time;.z.t);
  }
