@@ -27,4 +27,5 @@ extractChain:{[head]
   result[`header][`prevkeymr]
  }
 
+// The following iterate command will work back through the chain until no previous block is found 
 extractChain\[{not ""~x};chainHead]
