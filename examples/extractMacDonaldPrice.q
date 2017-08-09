@@ -1,7 +1,7 @@
 .utl.require "qfactom"
 
 / Set chain head to the Intrinio McDonald's price chain
-/ This is a delyed market data feed, giving last price every 15 min
+/ This is a delayed market data feed, giving last price every 15 min
 
 chainHead:"737606bad57cbd353ae5387651d5fbf0e35ab449d8a4c268806e1e6efe35ba83"
 
