@@ -3,7 +3,8 @@
 / Set chain head to the Intrinio McDonald's price chain
 / This is a delayed market data feed, giving the last price every 15 min
 
-chainHead:"737606bad57cbd353ae5387651d5fbf0e35ab449d8a4c268806e1e6efe35ba83"
+chainID:"0181d4011dda7f3f7dbcbdd7b66ea3be60261b096f7453152102afb95d258783"
+chainHead:.factomd.chain_head[chainID;{x[`result][`chainhead]}]
 
 entries:([]
   entryhash:();
@@ -21,7 +22,7 @@ hexToAscii:{[hex] `char$"X"$2 cut hex}
 
 extractChain:{[head] 
   result:.factomd.entry_block[head;{x[`result]}];
-  if[result~"";:""];
+  if[(result~"") | (result[`header][`prevkeymr]~64#"0");:""];
   `entries insert result[`entrylist];
   jsonEntries:hexToAscii each .factomd.entry[;{x[`result][`content]}] each result[`entrylist][`entryhash];
   raw:@[.j.k;;`source`quote_date`data!("";"";enlist ((enlist `missing)!enlist 0n))] each jsonEntries;

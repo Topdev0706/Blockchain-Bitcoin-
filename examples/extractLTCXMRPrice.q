@@ -24,8 +24,7 @@ hexToAscii:{[hex] `char$"X"$2 cut hex}
 
 extractChain:{[head]
   result:.factomd.entry_block[head;{x[`result]}];
-  if[result~"";:""];
-  if[result[`header][`prevkeymr]~"0000000000000000000000000000000000000000000000000000000000000000";:""];
+  if[(result~"") | (result[`header][`prevkeymr]~64#"0");:""];
   `entries insert result[`entrylist];
   jsonEntries:hexToAscii each .factomd.entry[;{x[`result][`content]}] each result[`entrylist][`entryhash];
   @[insert[`quoteData;];t:exec .j.k each ReturnData from @[.j.k;;([]ReturnData:("{}";"{}"))] each jsonEntries;{[err] show err}];
