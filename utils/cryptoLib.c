@@ -5,17 +5,19 @@
 #include <openssl/sha.h>
 #include "k.h"
 
-K Sha256(K inputString) {
+K Sha256(K inputBytes) {
   K outputHash;
-  if(KG != inputString->t)
+  if(KG != inputBytes->t)
     return krr("type");
   outputHash= ktn(KG, SHA256_DIGEST_LENGTH);
-  SHA256(kG(inputString), inputString->n, kG(outputHash));
+  SHA256(kG(inputBytes), inputBytes->n, kG(outputHash));
   return outputHash;
 }
 
 
 K decodeToBytes(K inputString){
+  if(KC != inputString->t)
+    return krr("type");
   size_t i = 0;
   int outputByteLength=64;
   const char *p = kG(inputString);
