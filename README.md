@@ -8,7 +8,7 @@ Library enables
 * Utilities: Check balances, block-height, transaction lookups
 
 Combining the speed of kdb+ with the scalability and security of factom enables
-millions of records to be secured quickly and safely on the blockchain.
+millions of records to be secured quickly and safely on the Bitcoin blockchain.
 
 Use cases:
 
