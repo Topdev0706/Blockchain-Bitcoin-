@@ -250,7 +250,6 @@ append_factom_chain:{[entryCreditAddress;externalIDStringList;contentString;chai
   
 properties:{[callback]
   body:defaultPayload[];
-  body[`method]:"properties";
   callback .Q.getCmd[hostLookup[`wallet];body]
  }
 
