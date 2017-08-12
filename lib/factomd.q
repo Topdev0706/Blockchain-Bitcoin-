@@ -3,6 +3,11 @@
 hostLookup:`factomd`wallet!`$":http://localhost:",/:("8088/v2";"8089/v2")
 
 
+init:{[clientHostAddr;walletHostAddr] 
+  @[;`hostLookup;,;`factomd`wallet!(clientHostAddr;walletHostAddr)]'[`.factomd`.factomwallet];
+ }
+
+
 defaultPayload:{
   (!) . (`jsonrpc`id`method`params;("2.0";0;"properties";""))
  }
