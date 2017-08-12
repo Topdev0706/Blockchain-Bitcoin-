@@ -1,8 +1,7 @@
 
 .utl.require "qfactom"
 
-/ Set chain head to the Intrinio McDonald's price chain
-/ This is a delayed market data feed, giving the last price every 15 min
+/ Set chain head to the Poloniex Litecoin vs Monero price chain
 
 chainID:"383d772059bbea739e28a0a9e8a36333de663a3654fd8e42c6cffab37d60cfde"
 chainHead:.factomd.chain_head[chainID;{x[`result][`chainhead]}]
