@@ -1,3 +1,9 @@
+/ The Entry Hash is a 32 byte identifier unique to specific Entry data.
+/ To calculate the Entry Hash, first the Entry is serialized and passed into a SHA512 function. 
+/ The 64 bytes output from the SHA512 function is prepended to the serialized Entry. 
+/ The Entry+prependage are then fed through a SHA256 function, and the output of that is the Entry Hash
+
+
 .utl.require "qfactom"
 entryHash:"be9c9b0f0f5c43c69e120a07632da2bde722fa0c704b092bcdcfd3f57b8c661d"
 

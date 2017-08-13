@@ -14,6 +14,15 @@ K Sha256(K inputBytes) {
   return outputHash;
 }
 
+K Sha512(K inputBytes) {
+  K outputHash;
+  if(KG != inputBytes->t)
+    return krr("type");
+  outputHash= ktn(KG, SHA512_DIGEST_LENGTH);
+  SHA512(kG(inputBytes), inputBytes->n, kG(outputHash));
+  return outputHash;
+}
+
 
 K decodeToBytes(K inputString){
   if(KC != inputString->t)
