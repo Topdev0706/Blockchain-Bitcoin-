@@ -115,6 +115,13 @@ transaction:{[transactionHash;callback]
  }
 
 
+ack:{[hash;chainid;callback]
+  body:defaultPayload[];
+  body[`method]:"ack";
+  body[`params]:(`hash`chainid)!(hash;chainid);
+  callback .Q.postCmd[hostLookup[`factomd];body]
+ }
+
 factoid_ack:{[txID;callback]
   body:defaultPayload[];
   body[`method]:"factoid-ack";
