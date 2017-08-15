@@ -1,6 +1,6 @@
 # qfactom
 kdb+ API library designed to interact with the Factom blockchain via 
-the factomd client REST API and factom wallet REST API. For usage instructions see [wiki](https://github.com/jlucid/qfactom/wiki) pages.
+the factomd client REST API and factom wallet REST API. For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/wiki) pages.
 Combining the speed of kdb+ with the scalability and security of factom enables
 millions of records to be secured quickly and safely on the Bitcoin blockchain.
 
