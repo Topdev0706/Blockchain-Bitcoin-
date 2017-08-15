@@ -1,14 +1,14 @@
 # qfactom
 kdb+ API library designed to interact with the Factom blockchain via 
 the factomd client REST API and factom wallet REST API. For usage instructions see [wiki](https://github.com/jlucid/qfactom/wiki) pages.
+Combining the speed of kdb+ with the scalability and security of factom enables
+millions of records to be secured quickly and safely on the Bitcoin blockchain.
 
 Library enables
 * Transactions: Both factoid->factoid and factoid->entry credit
-* Chain creation: Create and commit to a factom chain
+* Chain creation: Create chains and make entries to those chains
+* Chain extraction: Extract all chain entries given a chain id 
 * Utilities: Check balances, block-height, transaction lookups
-
-Combining the speed of kdb+ with the scalability and security of factom enables
-millions of records to be secured quickly and safely on the Bitcoin blockchain.
 
 Use cases:
 
@@ -25,3 +25,7 @@ https://explorer.factom.org/entry/bfa8626577553a90906246faf94bf02febad9697339993
 * Acting as a smart contract oracle. In this scenario, a smart contract (running on a decentralized network
   such as RSK or ethereum) can use the factom blockchain to extract reliable/verifiable data and act accordingly.
  See https://www.factom.com/blog/smartcontract-factom-announce-collaboration
+
+
+
+
