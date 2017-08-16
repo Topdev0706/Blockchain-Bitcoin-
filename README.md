@@ -31,5 +31,30 @@ See [Factom Market Data Entry](https://explorer.factom.org/entry/bfa8626577553a9
 See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-announce-collaboration)
 
 
+## Prerequisites
+
+* kdb+ v3.4 or higher
+* [qutil](https://github.com/nugend/qutil) - Required if you wish to load the library using qutil.
+  If not an alternative method is provided.
+* A factomd client and wallet application for the library to communicate with.  
+
+## Installing
+
+To load using qutil, follow the steps below.
+
+Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable qutil to find the init.q file and load the library
+Start a q session and load using the following command
+
+    q).utl.require "qfactom"
+    q)key `
+    `q`Q`h`j`o`util`factomd`factomwallet    // .factomd and .factomwallet namespace loaded
+    
+Alternatively, the library can be loaded using the provided factomLoad.q script.
+First set the environmental variable 
+QFACTOM_HOME to where you placed the qfactom folder locally.
+    $export QFACTOM_HOME=/home/test/library/qfactom/
+    $q $QFACTOM_HOME/lib/factomLoad.q
+
+
 
 
