@@ -13,25 +13,26 @@ Library enables
 
 Use cases:
 
-* Securing large data sets. For example, IoT data.
-See [Test](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
+* Securing large IOT data sets. 
+See [Blockchain IOT Project](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
 
 * Securing private blockchains through the use of anchoring.
-See http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf
+See [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)
 
 * Providing a proof of existence.
 Anchor hashes in the bitcoin blockchain can provide undisputable cryptographic proof that data was 
 at a particular state at a given point in time. 
+See [PoE Explained](http://www.newsbtc.com/proof-of-existence/)
 
 * Providing an open ledger for public data.
 Intrinio use the Factom blockchain to publish stock market prices every 15 minutes for 3000 US stocks. 
-See https://www.factom.com/blog/intrinio-factom-announce-collaboration
-Entry records are easily accessible via the Factom blockchain explorer. See 
-https://explorer.factom.org/entry/bfa8626577553a90906246faf94bf02febad9697339993a942790dd3fb20f9c8
+See [Intrinio Article](https://www.factom.com/blog/intrinio-factom-announce-collaboration)
+Entry records are easily accessible via the Factom blockchain explorer. 
+See [Factom Market Data Entry](https://explorer.factom.org/entry/bfa8626577553a90906246faf94bf02febad9697339993a942790dd3fb20f9c8)
 
 * Acting as a smart contract oracle. In this scenario, a smart contract (running on a decentralized network
   such as RSK or ethereum) can use the factom blockchain to extract reliable/verifiable data.
- See https://www.factom.com/blog/smartcontract-factom-announce-collaboration
+See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-announce-collaboration)
 
 
 
