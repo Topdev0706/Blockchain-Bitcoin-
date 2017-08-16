@@ -35,7 +35,7 @@ See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-a
 
 * kdb+ v3.4 or higher
 * [qutil](https://github.com/nugend/qutil) - Required if you wish to load the library using qutil.
-  If not an alternative method is provided.
+  If not, an alternative method is provided. See below.
 * A factomd client and wallet application for the library to communicate with.  
 
 ## Installing
