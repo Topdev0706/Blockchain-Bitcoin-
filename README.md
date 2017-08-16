@@ -62,3 +62,11 @@ QFACTOM_HOME to where you placed the qfactom folder locally.
 This code is licensed under an MIT license.  See LICENSE for
 the full text.
 
+## Contact
+
+Jeremy Lucid 
+jlucid@kx.com
+https://github.com/jlucid
+
+
+
