@@ -23,7 +23,7 @@ at a particular state at a given point in time.
 See [PoE Explained](http://www.newsbtc.com/proof-of-existence/)
 * Providing an open ledger for public data.
 Intrinio use the Factom blockchain to publish stock market prices every 15 minutes for 3000 US stocks. 
-See [Intrinio Article](https://www.factom.com/blog/intrinio-factom-announce-collaboration).
+See [Intrinio Article](https://www.factom.com/blog/intrinio-factom-announce-collaboration).  
 Entry records are easily accessible via the Factom blockchain explorer. 
 See [Factom Market Data Entry](https://explorer.factom.org/entry/bfa8626577553a90906246faf94bf02febad9697339993a942790dd3fb20f9c8)
 * Acting as a smart contract oracle. In this scenario, a smart contract (running on a decentralized network
