@@ -20,7 +20,7 @@ See [Blockchain IOT Project](https://www.ethnews.com/factom-receives-second-dhs-
 See [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)
 
 * Providing a proof of existence.
-Anchor hashes in the bitcoin blockchain can provide undisputable cryptographic proof that data was 
+Anchor hashes in the bitcoin blockchain can provide indisputable cryptographic proof that data was 
 at a particular state at a given point in time. 
 See [PoE Explained](http://www.newsbtc.com/proof-of-existence/)
 
