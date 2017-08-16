@@ -42,8 +42,7 @@ See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-a
 
 To load using qutil, follow the steps below.
 
-Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable qutil to find the init.q file and load the library
-Start a q session and load using the following command
+Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable qutil 'require' function to find the init.q file and load the library. You can confirm the library is loaded correctly by checking that the .factomd and .factomwallet namespaces are present in the q session.
 
     q).utl.require "qfactom"
     q)key `
@@ -56,7 +55,7 @@ QFACTOM_HOME to where you placed the qfactom folder locally.
     $export QFACTOM_HOME=/home/test/library/qfactom/
     $q $QFACTOM_HOME/lib/factomLoad.q
     q)key `
-    `q`Q`h`j`o`util`factomd`factomwallet    // .factomd and .factomwallet namespace loaded
+    `q`Q`h`j`o`util`factomd`factomwallet   
 
 
 
