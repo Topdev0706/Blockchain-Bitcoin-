@@ -4,14 +4,14 @@ the factomd client REST API and factom wallet REST API. For install and usage in
 Combining the speed of kdb+ with the scalability and security of factom enables
 millions of records to be secured quickly and safely on the Bitcoin blockchain.
 
-Library enables
+## Functionality
 * Transactions: Both factoid->factoid and factoid->entry credit
 * Chain creation: Create chains and make entries to those chains
 * Chain extraction: Extract all chain entries given a chain id 
 * Receipts: Extract cryptographic proof that chain entries are secured with a single hash on the Bitcoin blockchain
 * Utilities: Check balances, block-height, transaction lookups
 
-Use cases:
+## Use cases
 
 * Securing large IOT data sets. 
 See [Blockchain IOT Project](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
