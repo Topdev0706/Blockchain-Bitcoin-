@@ -64,9 +64,10 @@ the full text.
 
 ## Contact
 
-Jeremy Lucid 
-jlucid@kx.com
-https://github.com/jlucid
+Jeremy Lucid  
+jlucid@kx.com  
+https://github.com/jlucid  
+
 
 
 
