@@ -52,9 +52,11 @@ Start a q session and load using the following command
 Alternatively, the library can be loaded using the provided factomLoad.q script.
 First set the environmental variable 
 QFACTOM_HOME to where you placed the qfactom folder locally.
+
     $export QFACTOM_HOME=/home/test/library/qfactom/
     $q $QFACTOM_HOME/lib/factomLoad.q
-
+    q)key `
+    `q`Q`h`j`o`util`factomd`factomwallet    // .factomd and .factomwallet namespace loaded
 
 
 
