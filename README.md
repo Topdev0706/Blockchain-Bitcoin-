@@ -14,7 +14,7 @@ Library enables
 Use cases:
 
 * Securing large data sets. For example, IoT data.
-See https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project
+See [Test](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
 
 * Securing private blockchains through the use of anchoring.
 See http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf
