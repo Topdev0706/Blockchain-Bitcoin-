@@ -59,7 +59,7 @@ QFACTOM_HOME to where you placed the qfactom folder locally.
 
 ## License
 
-This code is licensed under an MIT license.  See LICENSE for
+This code is licensed under an MIT license.  See [LICENSE](https://github.com/jlucid/qfactom/blob/master/LICENSE) for
 the full text.
 
 ## Contact
