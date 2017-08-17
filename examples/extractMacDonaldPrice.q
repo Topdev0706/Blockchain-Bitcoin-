@@ -18,13 +18,11 @@ quoteData:([]
   price:()
  )
 
-hexToAscii:{[hex] `char$"X"$2 cut hex}
-
 extractChain:{[head] 
   result:.factomd.entry_block[head;{x[`result]}];
   if[(result~"") | (result[`header][`prevkeymr]~64#"0");:""];
   `entries insert result[`entrylist];
-  jsonEntries:hexToAscii each .factomd.entry[;{x[`result][`content]}] each result[`entrylist][`entryhash];
+  jsonEntries:.factomd.util.hexToAscii .factomd.entry[;{x[`result][`content]}] each result[`entrylist][`entryhash];
   raw:@[.j.k;;`source`quote_date`data!("";"";enlist ((enlist `missing)!enlist 0n))] each jsonEntries;
   `quoteData insert delete data from update sym:{key first x }'[data],price:{value first x}'[data] from raw;
   result[`header][`prevkeymr]
