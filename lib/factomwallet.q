@@ -1,6 +1,7 @@
 \d .factomwallet
 
 hostLookup:`factomd`wallet!`$":http://localhost:",/:("8088/v2";"8089/v2")
+passLookup:`factomd`wallet!("";"")
 
 
 defaultPayload:{

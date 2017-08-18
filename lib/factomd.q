@@ -1,10 +1,17 @@
 \d .factomd
 
+
 hostLookup:`factomd`wallet!`$":http://localhost:",/:("8088/v2";"8089/v2")
+passLookup:`factomd`wallet!("";"")
 
 
-init:{[clientHostAddr;walletHostAddr] 
+initHost:{[clientHostAddr;walletHostAddr] 
   @[;`hostLookup;,;`factomd`wallet!(clientHostAddr;walletHostAddr)]'[`.factomd`.factomwallet];
+ }
+
+
+initPassword:{[fcUserPass;fwUserPass]
+  @[;`passLookup;,;`factomd`wallet!(.factomd.util[`base64Encode]@'(fcUserPass;fwUserPass))]'[`.factomd`.factomwallet];
  }
 
 

@@ -1,11 +1,15 @@
 \d .Q
 
 getCmd:{[hostName;body]
-  .j.k @[.Q.hg[hostName;"Content-Type: text/plain"];.j.j body;{[err] -2 "Error: getCmd: ",err;:"{}"}]
+  credentials:.factomd.passLookup[.factomd.hostLookup?hostName];
+  out:@[.Q.hg[hostName;"Authorization: Basic ",credentials,";Content-Type: text/plain"];.j.j body;{[err] -2 "Error: getCmd: ",err;:"{}"}];
+  @[.j.k;;{[out;err] -2 "Error: ",err," .Q.hg returned: ",out}[out;]] out 
  }
 
 postCmd:{[hostName;body]
-  .j.k @[.Q.hp[hostName;"Content-Type: text/plain"];.j.j body;{[err] -2 "Error: postCmd: ",err;:"{}"}]
+  credentials:.factomd.passLookup[.factomd.hostLookup?hostName];
+  out:@[.Q.hp[hostName;"Authorization: Basic ",credentials,";Content-Type: text/plain"];.j.j body;{[err] -2 "Error: postCmd: ",err;:"{}"}];
+  @[.j.k;;{[out;err] -2 "Error: ",err," .Q.hp returned: ",out}[out;]] out 
  }
 
 \d .
