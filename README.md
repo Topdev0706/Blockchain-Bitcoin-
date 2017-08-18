@@ -1,8 +1,11 @@
 # qfactom
-kdb+ API library designed to interact with the Factom blockchain via 
-the factomd client REST API and factom wallet REST API. For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/wiki) pages.
+Is a kdb+ library which interacts with the Factom blockchain via the factomd client and wallet REST APIs. 
+The library allows records, in the form of kdb+ tables,lists etc, to be easily secured on the Bitcoin blockchain, via a single Factom anchor hash. Entries made to factom chains can serve as a [Proof of Existence](http://www.newsbtc.com/proof-of-existence/), enabling cryptographically secured audit trails to be constructed.
+
 Combining the speed of kdb+ with the scalability and security of factom enables
 millions of records to be secured quickly and safely on the Bitcoin blockchain.
+
+For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/wiki) pages.
 
 ## Functionality
 * Transactions: Both factoid->factoid and factoid->entry credit
@@ -59,7 +62,7 @@ QFACTOM_HOME to where you placed the qfactom folder locally.
 
 ## License
 
-This code is licensed under an MIT license.  See LICENSE for
+This code is licensed under an MIT license.  See [LICENSE](https://github.com/jlucid/qfactom/blob/master/LICENSE) for
 the full text.
 
 ## Contact
