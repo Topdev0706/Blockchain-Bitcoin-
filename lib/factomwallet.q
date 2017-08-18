@@ -1,7 +1,14 @@
 \d .factomwallet
 
-hostLookup:`factomd`wallet!`$":http://localhost:",/:("8088/v2";"8089/v2")
-passLookup:`factomd`wallet!("";"")
+
+initHost:{[hostAddr]
+  @[`.factomd;`hostLookup;,;(!) . enlist@'(`wallet;hostAddr)];
+ }
+
+
+initPass:{[hostPass]
+  @[`.factomd;`passLookup;,;(!) . enlist@'(`wallet;.factomd.util[`base64Encode] hostPass)];
+ }
 
 
 defaultPayload:{

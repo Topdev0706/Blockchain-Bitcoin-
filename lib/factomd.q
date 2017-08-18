@@ -5,13 +5,13 @@ hostLookup:`factomd`wallet!`$":http://localhost:",/:("8088/v2";"8089/v2")
 passLookup:`factomd`wallet!("";"")
 
 
-initHost:{[clientHostAddr;walletHostAddr] 
-  @[;`hostLookup;,;`factomd`wallet!(clientHostAddr;walletHostAddr)]'[`.factomd`.factomwallet];
+initHost:{[hostAddr]
+  @[`.factomd;`hostLookup;,;(!) . enlist@'(`factomd;hostAddr)];
  }
 
 
-initPassword:{[fcUserPass;fwUserPass]
-  @[;`passLookup;,;`factomd`wallet!(.factomd.util[`base64Encode]@'(fcUserPass;fwUserPass))]'[`.factomd`.factomwallet];
+initPass:{[hostPass]
+  @[`.factomd;`passLookup;,;(!) . enlist@'(`factomd;.factomd.util[`base64Encode] hostPass)];
  }
 
 
