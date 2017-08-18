@@ -60,6 +60,24 @@ QFACTOM_HOME to where you placed the qfactom folder locally.
     q)key `
     `q`Q`h`j`o`util`factomd`factomwallet   
 
+
+## Configure
+
+By default, qfactom assumes the factomd and factom-wallet applications are running on your localhost server.
+If they are hosted elsewhere, then run the following commands to change the default
+
+    q).factomd.initHost[`$":http://remotehost:8088/v2"]       // Change factomd host location
+    q).factomwallet.initHost[`$":http://remotehost:8089/v2"]  // Change factom wallet host location
+    
+If you are running factomd with username and password enabled, as shown below 
+
+    ./factomd -rpcuser <username> -rpcpass <password>
+
+Then run the following command to ensure the API calls passes the required credentials
+
+    q).factomd.initPass["username:password"]
+
+
 ## License
 
 This code is licensed under an MIT license.  See [LICENSE](https://github.com/jlucid/qfactom/blob/master/LICENSE) for
