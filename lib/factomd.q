@@ -106,6 +106,14 @@ receipt:{[hash;callback]
   }
 
 
+admin_block:{[keyMR;callback]
+  body:defaultPayload[];
+  body[`method]:"admin-block";
+  body[`params]:(enlist `keyMR)!(enlist keyMR);
+  callback .Q.postCmd[hostLookup[`factomd];body]
+ }
+
+
 entry_block:{[keyMR;callback]
   body:defaultPayload[];
   body[`method]:"entry-block";
