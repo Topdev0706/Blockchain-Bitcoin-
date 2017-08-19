@@ -8,11 +8,11 @@ millions of records to be secured quickly and safely on the Bitcoin blockchain.
 For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/wiki) pages.
 
 ## Functionality
-* Transactions: Both factoid->factoid and factoid->entry credit
-* Chain creation: Create chains and make entries to those chains
-* Chain extraction: Extract all chain entries given a chain id 
-* Receipts: Extract cryptographic proof that chain entries are secured with a single hash on the Bitcoin blockchain
-* Utilities: Check balances, block-height, transaction lookups
+* Transactions: Both factoid->factoid and factoid->entry credit, see [Transactions](https://github.com/jlucid/qfactom/wiki/Performing-Transactions).
+* Chain creation: Create chains and make entries to those chains, see [Creating Chains](https://github.com/jlucid/qfactom/wiki/Creating-Factom-chains).
+* Chain extraction: Extract all chain entries given a chain id, see [Chain extraction](https://github.com/jlucid/qfactom/wiki/Extracting-a-Chain). 
+* Receipts: Extract cryptographic proof that chain entries are secured with a single hash on the Bitcoin blockchain, see [Anchors](https://github.com/jlucid/qfactom/wiki/Bitcoin-Anchor-proof).
+* Utilities: Check balances, block-height, transaction status, see [State information](https://github.com/jlucid/qfactom/wiki/State-information).
 
 ## Use cases
 
