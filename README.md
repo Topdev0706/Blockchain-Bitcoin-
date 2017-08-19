@@ -73,7 +73,7 @@ If you are running factomd with username and password enabled, as shown below
 
     ./factomd -rpcuser <username> -rpcpass <password>
 
-Then run the following command to ensure the API calls passes the required credentials
+Then run the following command to ensure the authentication credentials are passed on the API calls
 
     q).factomd.initPass["username:password"]
 
