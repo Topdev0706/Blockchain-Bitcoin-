@@ -1,6 +1,6 @@
 # qfactom
-Is a kdb+ library which interacts with the Factom blockchain via the factomd client (*factomd*) and wallet (*factom-walletd*) REST APIs. 
-The library allows records, in the form of kdb+ tables,lists etc, to be easily secured on the Bitcoin blockchain, via a single Factom anchor hash. Entries made to factom chains can serve as a [Proof of Existence](http://www.newsbtc.com/proof-of-existence/), enabling cryptographically secured audit trails to be constructed.
+Is a kdb+ wrapper library to interact with the Factom blockchain via the factomd client (*factomd*) and wallet (*factom-walletd*) REST APIs. 
+The library allows records, in the form of kdb+ tables,lists etc, to be easily secured on the Bitcoin blockchain, via a single Factom anchor hash. Entries made to factom chains can serve as a [Proof of Existence](http://www.newsbtc.com/proof-of-existence/), enabling cryptographically secure audit trails to be constructed. Data on existing chains, like those used to publish Stock market prices, can also be easily extracted and coverted to kdb+ table format, see [example]( https://github.com/jlucid/qfactom/wiki/Extracting-a-Chain).
 
 Combining the speed of kdb+ with the scalability and security of factom enables
 millions of records to be secured quickly and safely on the Bitcoin blockchain.
@@ -8,18 +8,19 @@ millions of records to be secured quickly and safely on the Bitcoin blockchain.
 For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/wiki) pages.
 
 ## Functionality
-* Transactions: Both factoid->factoid and factoid->entry credit
-* Chain creation: Create chains and make entries to those chains
-* Chain extraction: Extract all chain entries given a chain id 
-* Receipts: Extract cryptographic proof that chain entries are secured with a single hash on the Bitcoin blockchain
-* Utilities: Check balances, block-height, transaction lookups
+* Transactions: Both factoid->factoid and factoid->entry credit, see [Transactions](https://github.com/jlucid/qfactom/wiki/Performing-Transactions).
+* Chain creation: Create chains and make entries to those chains, see [Creating Chains](https://github.com/jlucid/qfactom/wiki/Creating-Factom-chains).
+* Chain extraction: Extract all chain entries given a chain id, see [Chain extraction](https://github.com/jlucid/qfactom/wiki/Extracting-a-Chain). 
+* Receipts: Extract cryptographic proof that chain entries are secured with a single hash on the Bitcoin blockchain, see [Anchors](https://github.com/jlucid/qfactom/wiki/Bitcoin-Anchor-proof).
+* Utilities: Check balances, block-height, transaction status, see [State information](https://github.com/jlucid/qfactom/wiki/State-information).
 
 ## Use cases
 
 * Securing large IOT data sets. 
 See [Blockchain IOT Project](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
 * Securing private blockchains through the use of anchoring.
-See [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)
+* Auditing and Compliance tool.
+For example, in the Mortgage insustry, see [Factom Harmony](https://www.factom.com/products/harmony/video), [Factom Apollo](https://vimeo.com/154918515) and [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)
 * Providing a proof of existence.
 Anchor hashes in the bitcoin blockchain can provide indisputable cryptographic proof that data was 
 at a particular state at a given point in time. 
@@ -43,7 +44,7 @@ See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-a
 
 ## Installing
 
-To load using qutil, follow the steps below.
+To load using [qutil](https://github.com/nugend/qutil), follow the steps below.
 
 Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable qutil 'require' function to find the init.q file and load the library. You can confirm the library is loaded correctly by checking that the .factomd and .factomwallet namespaces are present in the q session. The namespace name contains all supported v2 API calls for the associated application.
 
