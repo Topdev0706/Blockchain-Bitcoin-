@@ -91,6 +91,12 @@ Incorrect username and password credentials will result in the following error
     Error: illegal char U at 4 .Q.hp returned: 401 Unauthorized.
 
 
+## Tests
+
+[qspec](https://github.com/nugend/qspec) tests are currently under construction.  
+See [Test Folder](https://github.com/jlucid/qfactom/tree/master/tests)
+
+
 ## License
 
 This code is licensed under an MIT license.  See [LICENSE](https://github.com/jlucid/qfactom/blob/master/LICENSE) for
