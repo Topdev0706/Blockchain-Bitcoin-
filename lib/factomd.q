@@ -149,22 +149,7 @@ transaction:{[transactionHash;callback]
 ack:{[hash;chainid;callback]
   body:defaultPayload[];
   body[`method]:"ack";
-  body[`params]:(`hash`chainid)!(hash;chainid);
-  callback .Q.postCmd[hostLookup[`factomd];body]
- }
-
-factoid_ack:{[txID;callback]
-  body:defaultPayload[];
-  body[`method]:"factoid-ack";
-  body[`params]:(enlist `TxID)!(enlist txID);
-  callback .Q.postCmd[hostLookup[`factomd];body]
- }
-
-
-entry_ack:{[txID;callback]
-  body:defaultPayload[];
-  body[`method]:"entry-ack";
-  body[`params]:(enlist `TxID)!(enlist txID);
+  body[`params]:(`hash`chainid`fulltransaction)!(hash;chainid;"");
   callback .Q.postCmd[hostLookup[`factomd];body]
  }
 
