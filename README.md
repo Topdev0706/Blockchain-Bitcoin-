@@ -1,5 +1,5 @@
 # qfactom
-Is a kdb+ library which interacts with the Factom blockchain via the factomd client and wallet REST APIs. 
+Is a kdb+ library which interacts with the Factom blockchain via the factomd client (*factomd*) and wallet (*factom-walletd*) REST APIs. 
 The library allows records, in the form of kdb+ tables,lists etc, to be easily secured on the Bitcoin blockchain, via a single Factom anchor hash. Entries made to factom chains can serve as a [Proof of Existence](http://www.newsbtc.com/proof-of-existence/), enabling cryptographically secured audit trails to be constructed.
 
 Combining the speed of kdb+ with the scalability and security of factom enables
@@ -45,7 +45,7 @@ See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-a
 
 To load using qutil, follow the steps below.
 
-Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable qutil 'require' function to find the init.q file and load the library. You can confirm the library is loaded correctly by checking that the .factomd and .factomwallet namespaces are present in the q session.
+Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable qutil 'require' function to find the init.q file and load the library. You can confirm the library is loaded correctly by checking that the .factomd and .factomwallet namespaces are present in the q session. The namespace name contains all supported v2 API calls for the associated application.
 
     q).utl.require "qfactom"
     q)key `
@@ -63,19 +63,31 @@ QFACTOM_HOME to where you placed the qfactom folder locally.
 
 ## Configure
 
-By default, qfactom assumes the factomd and factom-wallet applications are running on your localhost server.
+By default, qfactom assumes the *factomd* and *factom-walletd* applications are running on your localhost server.
 If they are hosted elsewhere, then run the following commands to change the default
 
     q).factomd.initHost[`$":http://remotehost:8088/v2"]       // Change factomd host location
-    q).factomwallet.initHost[`$":http://remotehost:8089/v2"]  // Change factom wallet host location
+    q).factomwallet.initHost[`$":http://remotehost:8089/v2"]  // Change factom-walletd host location
     
-If you are running factomd with username and password enabled, as shown below 
+If you are running *factomd* with username and password enabled, as shown below 
 
     ./factomd -rpcuser <username> -rpcpass <password>
 
 Then run the following command to ensure the authentication credentials are passed on the API calls
 
     q).factomd.initPass["username:password"]
+
+The best way to confirm the credentials are correct is to make a trivial call to get the *factomd* version number
+
+    q).factomd.properties[{x}]
+    jsonrpc| "2.0"
+    id     | 0f
+    result | `factomdversion`factomdapiversion!("0.4.2.1";"2.0")
+
+Incorrect username and password credentials will result in the following error
+
+    q).factomd.properties[{x}]
+    Error: illegal char U at 4 .Q.hp returned: 401 Unauthorized.
 
 
 ## License
