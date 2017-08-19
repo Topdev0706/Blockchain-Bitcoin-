@@ -82,6 +82,22 @@ fblock_by_height:{[height;callback]
  }
 
 
+entrycredit_block:{[keyMR;callback]
+  body:defaultPayload[];
+  body[`method]:"entrycredit-block";
+  body[`params]:(enlist `keyMR)!(enlist keyMR);
+  callback .Q.postCmd[hostLookup[`factomd];body]
+ }
+
+
+factoid_block:{[keyMR;callback]
+  body:defaultPayload[];
+  body[`method]:"factoid-block";
+  body[`params]:(enlist `keyMR)!(enlist keyMR);
+  callback .Q.postCmd[hostLookup[`factomd];body]
+ }
+
+
 receipt:{[hash;callback]
   body:defaultPayload[];
   body[`method]:"receipt";
