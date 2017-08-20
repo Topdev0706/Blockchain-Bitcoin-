@@ -76,12 +76,18 @@ Then run the following command to ensure the authentication credentials are pass
 
     q).factomd.initPass["username:password"]
 
-The best way to confirm the credentials are correct is to make a trivial call to get the *factomd* version number
+An easy way to confirm that the hostname and authentication credentials are set up correctly, is to execute the "properties" function which will make a simple request for the version properties.
 
     q).factomd.properties[{x}]
     jsonrpc| "2.0"
     id     | 0f
     result | `factomdversion`factomdapiversion!("0.4.2.1";"2.0")
+
+    q).factomwallet.properties[{x}]
+    jsonrpc| "2.0"
+    id     | 0f
+    result | `walletversion`walletapiversion!("0.2.2.3";"2.0")
+
 
 Incorrect username and password credentials will result in the following error
 
