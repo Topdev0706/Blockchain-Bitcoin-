@@ -18,9 +18,9 @@ For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/
 
 * Securing large IOT data sets. 
 See [Blockchain IOT Project](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
-* Securing private blockchains through the use of anchoring.
+* Securing private blockchains through the use of anchoring. See [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)   
 * Auditing and Compliance tool.
-For example, in the Mortgage insustry, see [Factom Harmony](https://www.factom.com/products/harmony/video), [Factom Apollo](https://vimeo.com/154918515) and [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)
+For example, in the Mortgage insustry, see [Factom Harmony](https://www.factom.com/products/harmony/video), [Factom Apollo](https://vimeo.com/154918515).
 * Providing a proof of existence.
 Anchor hashes in the bitcoin blockchain can provide indisputable cryptographic proof that data was 
 at a particular state at a given point in time. 
@@ -30,9 +30,7 @@ Intrinio use the Factom blockchain to publish stock market prices every 15 minut
 See [Intrinio Article](https://www.factom.com/blog/intrinio-factom-announce-collaboration).  
 Entry records are easily accessible via the Factom blockchain explorer. 
 See [Factom Market Data Entry](https://explorer.factom.org/entry/bfa8626577553a90906246faf94bf02febad9697339993a942790dd3fb20f9c8)
-* Acting as a smart contract oracle. In this scenario, a smart contract (running on a decentralized network
-  such as RSK or ethereum) can use the factom blockchain to extract reliable/verifiable data.
-See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-announce-collaboration)
+* Acting as a smart contract oracle. See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-announce-collaboration)
 
 
 ## Prerequisites
@@ -46,7 +44,7 @@ See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-a
 
 To load using [qutil](https://github.com/nugend/qutil), follow the steps below.
 
-Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable qutil 'require' function to find the init.q file and load the library. You can confirm the library is loaded correctly by checking that the .factomd and .factomwallet namespaces are present in the q session. The namespace name contains all supported v2 API calls for the associated application.
+Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable .utl.require function to find the init.q file and load all q files. You can confirm the library is loaded correctly by checking that the .factomd and .factomwallet namespaces are present in the q session. The namespace name contains all supported v2 API calls for the associated application.
 
     q).utl.require "qfactom"
     q)key `
