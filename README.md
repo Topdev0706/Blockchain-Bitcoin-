@@ -1,6 +1,6 @@
 # qfactom
 Is a kdb+ wrapper library to interact with the Factom blockchain via the factomd client (*factomd*) and wallet (*factom-walletd*) REST APIs. 
-The library allows records, in the form of kdb+ tables,lists etc, to be easily secured on the Bitcoin blockchain, via a single Factom anchor hash. Entries made to factom chains can serve as a [Proof of Existence](http://www.newsbtc.com/proof-of-existence/), enabling cryptographically secure audit trails to be constructed. Data on existing chains, like those used to publish Stock market prices, can also be easily extracted and coverted to kdb+ table format, see [example]( https://github.com/jlucid/qfactom/wiki/Extracting-a-Chain).
+The library allows records, in the form of kdb+ tables,lists etc, to be easily secured on the Bitcoin blockchain, via a single Factom anchor hash. Entries made to factom chains can serve as a [Proof of Existence](http://www.newsbtc.com/proof-of-existence/), enabling cryptographically secure audit trails to be constructed. Data on existing chains, like those used to publish Stock market prices, can also be easily extracted and coverted to kdb+ table format, see [example](https://github.com/jlucid/qfactom/wiki/Extracting-a-Chain).
 
 Combining the speed of kdb+ with the scalability and security of factom enables
 millions of records to be secured quickly and safely on the Bitcoin blockchain.
@@ -18,19 +18,17 @@ For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/
 
 * Securing large IOT data sets. 
 See [Blockchain IOT Project](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
-* Securing private blockchains through the use of anchoring. See [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)   
+* Securing private blockchains through the use of anchoring, see [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)   
 * Auditing and Compliance tool.
 For example, in the Mortgage insustry, see [Factom Harmony](https://www.factom.com/products/harmony/video), [Factom Apollo](https://vimeo.com/154918515).
 * Providing a proof of existence.
 Anchor hashes in the bitcoin blockchain can provide indisputable cryptographic proof that data was 
-at a particular state at a given point in time. 
-See [PoE Explained](http://www.newsbtc.com/proof-of-existence/)
+at a particular state at a given point in time, see [PoE Explained](http://www.newsbtc.com/proof-of-existence/)
 * Providing an open ledger for public data.
-Intrinio use the Factom blockchain to publish stock market prices every 15 minutes for 3000 US stocks. 
-See [Intrinio Article](https://www.factom.com/blog/intrinio-factom-announce-collaboration).  
-Entry records are easily accessible via the Factom blockchain explorer. 
-See [Factom Market Data Entry](https://explorer.factom.org/entry/bfa8626577553a90906246faf94bf02febad9697339993a942790dd3fb20f9c8)
-* Acting as a smart contract oracle. See [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-announce-collaboration)
+Intrinio use the Factom blockchain to publish stock market prices every 15 minutes for 3000 US stocks, 
+see [Intrinio Article](https://www.factom.com/blog/intrinio-factom-announce-collaboration).  
+Entry records are easily accessible via the Factom blockchain explorer. see [Factom Market Data Entry](https://explorer.factom.org/entry/bfa8626577553a90906246faf94bf02febad9697339993a942790dd3fb20f9c8)
+* Acting as a smart contract oracle, see [Smart Contracts Article](https://www.factom.com/blog/smartcontract-factom-announce-collaboration)
 
 
 ## Prerequisites
