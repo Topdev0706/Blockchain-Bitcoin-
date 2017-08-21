@@ -16,7 +16,7 @@ For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/
 
 ## Use cases
 
-* Securing large IOT data sets, see [Blockchain IOT Project](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
+* Securing large IoT data sets, see [Blockchain IoT Project](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project)
 * Securing private blockchains through the use of anchoring, see [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)   
 * Auditing and Compliance tool.
 For example, in the Mortgage insustry, see [Factom Harmony](https://www.factom.com/products/harmony/video), [Factom Apollo](https://vimeo.com/154918515).
