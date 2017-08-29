@@ -1,5 +1,5 @@
 # qfactom
-qfactom is a kdb+ wrapper library to interact with the Factom blockchain via the factomd client (*factomd*) and wallet (*factom-walletd*) REST APIs. 
+qfactom is a kdb+ wrapper library designed to interact with the Factom blockchain via the factomd client (*factomd*) and wallet (*factom-walletd*) REST APIs. 
 The library allows records, in the form of kdb+ tables, lists etc, to be easily secured on the Factom blockchain through the use of simple function calls. Entries made to Factom chains can serve as a [Proof of Existence](http://www.newsbtc.com/proof-of-existence/), enabling cryptographically secure audit trails to be constructed. Data on existing chains, like those used to publish Stock market prices, can also be easily extracted and coverted to kdb+ table format, see [example](https://github.com/jlucid/qfactom/wiki/Extracting-a-Chain).
 
 Combining the speed and scalability of kdb+ with the security and scalability of Factom, enables
