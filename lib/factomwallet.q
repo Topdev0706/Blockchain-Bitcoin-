@@ -195,10 +195,10 @@ compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
 
 
 trans_fact_fact:{[txname;input;output;quantity;callback]
-  Data:new_transaction[txname;{x}];
-  Data:add_input[txname;input;quantity;{x}];
-  Data:add_output[txname;output;quantity;{x}];
-  Data:sub_fee[txname;output;{x}];
+  Data:new_transaction[txname;callback];
+  Data:add_input[txname;input;quantity;callback];
+  Data:add_output[txname;output;quantity;callback];
+  Data:sub_fee[txname;output;callback];
   sign_transaction[txname;callback];
   Data:compose_transaction[txname;{x}];
   hexString:Data[`result][`params][`transaction];
@@ -207,10 +207,10 @@ trans_fact_fact:{[txname;input;output;quantity;callback]
 
 
 trans_fact_ec:{[txname;input;outputEC;quantity;callback]
-  Data:new_transaction[txname;{x}];
-  Data:add_input[txname;input;quantity;{x}];
-  Data:add_ec_output[txname;outputEC;quantity;{x}];
-  Data:add_fee[txname;input;{x}];
+  Data:new_transaction[txname;callback];
+  Data:add_input[txname;input;quantity;callback];
+  Data:add_ec_output[txname;outputEC;quantity;callback];
+  Data:add_fee[txname;input;callback];
   sign_transaction[txname;callback];
   Data:compose_transaction[txname;{x}];
   hexString:Data[`result][`params][`transaction];
