@@ -194,26 +194,45 @@ compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
  }
 
 
+checkTransError:{[output]
+  $[`error in key output;
+    [
+     -2 "Transaction Error: ",(string output[`error][`code])," ", raze value (`code _ output[`error]);
+     :1b
+    ];
+   :0b
+  ]
+ }
+
+
 trans_fact_fact:{[txname;input;output;quantity;callback]
-  Data:new_transaction[txname;callback];
-  Data:add_input[txname;input;quantity;callback];
-  Data:add_output[txname;output;quantity;callback];
-  Data:sub_fee[txname;output;callback];
+  Output:new_transaction[txname;callback];
+  if[checkTransError[Output];:()];
+  Output:add_input[txname;input;quantity;callback];
+  if[checkTransError[Output];:()];
+  Output:add_output[txname;output;quantity;callback];
+  if[checkTransError[Output];:()];
+  Output:sub_fee[txname;output;callback];
+  if[checkTransError[Output];:()];
   sign_transaction[txname;callback];
-  Data:compose_transaction[txname;{x}];
-  hexString:Data[`result][`params][`transaction];
+  Output:compose_transaction[txname;{x}];
+  hexString:Output[`result][`params][`transaction];
   .factomd.factoid_submit[hexString;{x}]
  }
 
 
 trans_fact_ec:{[txname;input;outputEC;quantity;callback]
-  Data:new_transaction[txname;callback];
-  Data:add_input[txname;input;quantity;callback];
-  Data:add_ec_output[txname;outputEC;quantity;callback];
-  Data:add_fee[txname;input;callback];
+  Output:new_transaction[txname;callback];
+  if[checkTransError[Output];:()];
+  Output:add_input[txname;input;quantity;callback];
+  if[checkTransError[Output];:()];
+  Output:add_ec_output[txname;outputEC;quantity;callback];
+  if[checkTransError[Output];:()];
+  Output:add_fee[txname;input;callback];
+  if[checkTransError[Output];:()];
   sign_transaction[txname;callback];
-  Data:compose_transaction[txname;{x}];
-  hexString:Data[`result][`params][`transaction];
+  Output:compose_transaction[txname;{x}];
+  hexString:Output[`result][`params][`transaction];
   .factomd.factoid_submit[hexString;{x}]
  }
  
@@ -221,12 +240,13 @@ trans_fact_ec:{[txname;input;outputEC;quantity;callback]
 errorCheck:{[output]
   $[`error in key output;
     [
-    -2 "Error Message: ",output[`error][`message];
-    1b
+     -2 "Error Message: ",output[`error][`message];
+     :1b
     ];    
-    0b
+   :0b
   ]
  } 
+
 
 create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;callback]
   composeChainResult:compose_chain[entryCreditAddress;externalIDStringList;contentsString;{x}];
