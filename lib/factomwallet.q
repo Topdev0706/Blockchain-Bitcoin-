@@ -197,7 +197,7 @@ compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
 checkTransError:{[output]
   $[`error in key output;
     [
-     -2 "Transaction Error: ",(string output[`error][`code])," ", raze value (`code _ output[`error]);
+     -2 "Transaction Error: ",(string output[`error][`code])," "," " sv value (`code _ output[`error]);
      :1b
     ];
    :0b
