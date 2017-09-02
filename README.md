@@ -40,10 +40,14 @@ Entry records are easily accessible via the Factom blockchain explorer. see [Fac
 
 ## Installing
 
+First set the environmental variable QFACTOM_HOME to where you placed the qfactom folder locally.
+```
+    $export QFACTOM_HOME=/home/test/library/qfactom/
+```
 Prior to loading the q scripts, a shared C library needs to be generated. Navigate to *qfactom/utils/* and run
 
 ```
-    make curlLib        // This library is used to enable TLS support, see below
+    $make curlLib        // This library is used to enable TLS support, see below
 ```
 
 To load the qfactom library using [qutil](https://github.com/nugend/qutil), follow the steps below.
@@ -55,10 +59,7 @@ Create a link named "qfactom" in the QPATH directory which points to qfactom/lib
     `q`Q`h`j`o`util`factomd`factomwallet    // .factomd and .factomwallet namespace loaded
     
 Alternatively, the library can be loaded using the provided factomLoad.q script.
-First set the environmental variable 
-QFACTOM_HOME to where you placed the qfactom folder locally.
 
-    $export QFACTOM_HOME=/home/test/library/qfactom/
     $q $QFACTOM_HOME/lib/factomLoad.q
     q)key `
     `q`Q`h`j`o`util`factomd`factomwallet   
