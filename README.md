@@ -104,7 +104,7 @@ Incorrect username and password credentials will result in the following error
     q).factomd.properties[{x}]
     Error: illegal char U at 4 .Q.hp returned: 401 Unauthorized.
 
-### Security TLS Support
+### Security: TLS Support
 
 When factomd is started with TLS mode enabled, as shown below
 
