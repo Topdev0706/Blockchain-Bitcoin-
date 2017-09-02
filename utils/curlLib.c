@@ -40,7 +40,7 @@ K request(K url, K params, K header, K tlsCert, K userPass)
     CURL *curl;
 
     // Return type error to q process if input args are not all symbols
-    if(url->t != -KS || params->t != -KS || header->t != -KS || tlsCert->t != -KS) 
+    if(url->t != -KS || params->t != -KS || header->t != -KS || tlsCert->t != -KS || userPass->t != -KS) 
         return krr("Error curl: type");
 
     if(initString(&s))
@@ -57,11 +57,15 @@ K request(K url, K params, K header, K tlsCert, K userPass)
         hdr = strtok(NULL, ";");
     }
 
+    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0);
     // If tlsCert argument is not a null symbol, enable TLS
-    if(0 != strlen(tlsCert->s)) 
+
+    if(0 != strlen(tlsCert->s)){
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1L);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 2L);
         curl_easy_setopt(curl, CURLOPT_CAINFO,        tlsCert->s);
+    }
 
     // If userPass argument is not a null symbol, enable username password authentication
     if(0 != strlen(userPass->s)) 
