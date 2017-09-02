@@ -19,15 +19,19 @@ else
    OBJHOME=l32
 endif
 
-all : cryptoLib
+all : cryptoLib curlLib
 CC=gcc
-OPTS=-D KXVER=3 -Wall -fno-strict-aliasing -Wno-parentheses -Wno-pointer-sign -g -O2
+OPTS=-D KXVER=3 -Wall -fno-strict-aliasing -Wno-parentheses -g -O2
 LDOPTS=-lpthread
 CRYPTOPTS=-lcrypto -lssl
+CURLOPTS=-lcurl
 OBJ=$(OBJHOME)/c.o
 
 cryptoLib:
 	$(CC) $(CFLAG) $(OPTS) -shared -fPIC -o cryptoLib.so cryptoLib.c $(LDOPTS) $(CRYPTOPTS)
 
+curlLib:
+	$(CC) $(CFLAG) $(OPTS) -shared -fPIC -o curlLib.so curlLib.c $(LDOPTS) $(CURLOPTS)
+
 clean:
-	rm cryptoLib.so
+	rm cryptoLib.so curlLib.so
