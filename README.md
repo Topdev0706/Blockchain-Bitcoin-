@@ -44,7 +44,7 @@ First set the environmental variable QFACTOM_HOME to where you placed the qfacto
 ```
     $export QFACTOM_HOME=/home/test/library/qfactom/
 ```
-Prior to loading the q scripts, a shared C library needs to be generated. Navigate to *qfactom/utils/* and run
+Prior to loading the q scripts, a shared C library needs to be generated. Navigate to qfactom/utils/ and run
 
 ```
     $make curlLib        // This library is used to enable TLS support, see below
