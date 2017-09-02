@@ -63,8 +63,8 @@ QFACTOM_HOME to where you placed the qfactom folder locally.
 By default, qfactom assumes the *factomd* and *factom-walletd* applications are running on your localhost server.
 If they are hosted elsewhere, then run the following commands to change the default
 
-    q).factomd.initHost[`$":http://remotehost:8088/v2"]       // Change factomd host location
-    q).factomwallet.initHost[`$":http://remotehost:8089/v2"]  // Change factom-walletd host location
+    q).factomd.initHost["http://remotehost:8088/v2]       // Change factomd host location
+    q).factomwallet.initHost["http://remotehost:8089/v2"]  // Change factom-walletd host location
     
 If you are running *factomd* with username and password enabled, as shown below 
 
@@ -72,7 +72,7 @@ If you are running *factomd* with username and password enabled, as shown below
 
 Then run the following command to ensure the authentication credentials are passed on the API calls
 
-    q).factomd.initPass["username:password"]
+    q).factomd.initPass[username;password]
 
 An easy way to confirm that the hostname and authentication credentials are set up correctly, is to execute the "properties" function which will make a simple request for the version properties.
 
