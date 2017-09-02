@@ -40,13 +40,13 @@ Entry records are easily accessible via the Factom blockchain explorer. see [Fac
 
 ## Installing
 
-Prior to loading the q scripts, the shared C library needs to be generated. Navigate to *qfactom/utils/* and run
+Prior to loading the q scripts, a shared C library needs to be generated. Navigate to *qfactom/utils/* and run
 
 ```
-    make curlLib
+    make curlLib        // This library is used to enable TLS support, see below
 ```
 
-To load using [qutil](https://github.com/nugend/qutil), follow the steps below.
+To load the qfactom library using [qutil](https://github.com/nugend/qutil), follow the steps below.
 
 Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable .utl.require function to find the init.q file and load all q files. You can confirm the library is loaded correctly by checking that the .factomd and .factomwallet namespaces are present in the q session. The namespace name contains all supported v2 API calls for the associated application.
 
