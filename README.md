@@ -53,17 +53,17 @@ Prior to loading the q scripts, a shared C library needs to be generated. Naviga
 To load the qfactom library using [qutil](https://github.com/nugend/qutil), follow the steps below.
 
 Create a link named "qfactom" in the QPATH directory which points to qfactom/lib. This will enable .utl.require function to find the init.q file and load all q files. You can confirm the library is loaded correctly by checking that the .factomd and .factomwallet namespaces are present in the q session. Each namespace contains all the supported v2 API calls for the associated application.
-
+```C++
     q).utl.require "qfactom"
     q)key `
     `q`Q`h`j`o`util`factomd`factomwallet    // .factomd and .factomwallet namespace loaded
-    
+```    
 Alternatively, the library can be loaded using the provided factomLoad.q script.
-
+```C++
     $q $QFACTOM_HOME/lib/factomLoad.q
     q)key `
     `q`Q`h`j`o`util`factomd`factomwallet   
-
+```
 
 ## Configure
 
@@ -72,22 +72,23 @@ Alternatively, the library can be loaded using the provided factomLoad.q script.
 By default, qfactom assumes the *factomd* and *factom-walletd* applications are running on your localhost server.
 If they are hosted elsewhere, then run the following commands to change the default
 
-
+```C++
     q).factomd.initHost["http://remotehost:8088/v2"]       // Change factomd host location
     q).factomwallet.initHost["http://remotehost:8089/v2"]  // Change factom-walletd host location
-    
+```    
 ### Security: Username and Password
 
 If you are running *factomd* with username and password enabled, as shown below 
-
+```C++
     ./factomd -rpcuser <username> -rpcpass <password>
-
+```
 Then run the following command to ensure the authentication credentials are passed during the API calls
-
+```C++
     q).factomd.initPass[username;password]
-
+```
 An easy way to confirm that the hostname and authentication credentials are set up correctly, is to execute the "properties" function which will make a simple request for the version properties.
 
+```C++
     q).factomd.properties[{x}]
     jsonrpc| "2.0"
     id     | 0f
@@ -97,13 +98,13 @@ An easy way to confirm that the hostname and authentication credentials are set 
     jsonrpc| "2.0"
     id     | 0f
     result | `walletversion`walletapiversion!("0.2.2.3";"2.0")
-
+```
 
 Incorrect username and password credentials will result in the following error
-
+```C++
     q).factomd.properties[{x}]
     Error: illegal char U at 4 .Q.hp returned: 401 Unauthorized.
-
+```
 ### Security: TLS Support
 
 When factomd is started with TLS mode enabled, as shown below
