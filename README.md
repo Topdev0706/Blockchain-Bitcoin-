@@ -124,7 +124,7 @@ To enable TLS support within *qfactom*, pass the certificate file path to the **
      1b
 ```
 
-When TLS is enabled, the **.factomd.request** function which launches the queries to *factomd*, will switch to
+When TLS is enabled, the **.factomd.request** function which submits queries to *factomd* and *factom-walletd*, will switch to
 using a C library function instead of the native .Q.hp function.
 
 
