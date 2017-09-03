@@ -7,9 +7,9 @@ curl:curlLibPath 2:(`request;5)
 qRequest:{[serviceName;body]
   hostName:.factomd.hostLookup[serviceName];
   credentials:.factomd.util[`base64Encode] .factomd.passLookup[serviceName];
-  header:";Content-Type: text/plain";
+  header:"Authorization: Basic ",credentials," ",";Content-Type: text/plain";
 
-  out:@[.Q.hpfact[hostName;"Authorization: Basic ",credentials," ",header];.j.j body;{[err] -2 "Error: qRequest: ",err;:"{}"}];
+  out:@[.Q.hpfact[hostName;header;];.j.j body;{[err] -2 "Error: qRequest: ",err;:"{}"}];
   @[.j.k;;{[out;err] -2 "Error: ",err," .Q.hpfact returned: ",out}[out;]] out 
  }
 
