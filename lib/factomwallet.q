@@ -209,35 +209,41 @@ checkTransError:{[output]
  }
 
 
+storeData:{[Data]
+    if[`error in key Data;:Data];
+    NotUpdated:(key Data[`result]) where 0n~'(value Data[`result]);
+    Result:NotUpdated _ Data[`result];
+    @[`.factomwallet;`Transactions;upsert;Result];
+    Data[`result]
+ }
+
 trans_fact_fact:{[txname;input;output;quantity;callback]
-  Output:new_transaction[txname;callback];
+  Output:new_transaction[txname;storeData];
   if[checkTransError[Output];:()];
-  Output:add_input[txname;input;quantity;callback];
+  Output:add_input[txname;input;quantity;storeData];
   if[checkTransError[Output];:()];
-  Output:add_output[txname;output;quantity;callback];
+  Output:add_output[txname;output;quantity;storeData];
   if[checkTransError[Output];:()];
-  Output:sub_fee[txname;output;callback];
+  Output:sub_fee[txname;output;storeData];
   if[checkTransError[Output];:()];
-  sign_transaction[txname;callback];
-  Output:compose_transaction[txname;{x}];
-  hexString:Output[`result][`params][`transaction];
-  .factomd.factoid_submit[hexString;{x}]
+  sign_transaction[txname;storeData];
+  hexString:compose_transaction[txname;{x[`result][`params][`transaction]}];
+  .factomd.factoid_submit[hexString;callback]
  }
 
 
 trans_fact_ec:{[txname;input;outputEC;quantity;callback]
-  Output:new_transaction[txname;callback];
+  Output:new_transaction[txname;storeData];
   if[checkTransError[Output];:()];
-  Output:add_input[txname;input;quantity;callback];
+  Output:add_input[txname;input;quantity;storeData];
   if[checkTransError[Output];:()];
-  Output:add_ec_output[txname;outputEC;quantity;callback];
+  Output:add_ec_output[txname;outputEC;quantity;storeData];
   if[checkTransError[Output];:()];
-  Output:add_fee[txname;input;callback];
+  Output:add_fee[txname;input;storeData];
   if[checkTransError[Output];:()];
-  sign_transaction[txname;callback];
-  Output:compose_transaction[txname;{x}];
-  hexString:Output[`result][`params][`transaction];
-  .factomd.factoid_submit[hexString;{x}]
+  sign_transaction[txname;storeData];
+  hexString:compose_transaction[txname;{x[`result][`params][`transaction]}];
+  .factomd.factoid_submit[hexString;callback]
  }
  
 
