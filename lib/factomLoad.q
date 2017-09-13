@@ -2,7 +2,7 @@ loadFile:{value "\\l ",x}
 $[not ""~QFACTOM_HOME:getenv[`QFACTOM_HOME];
   [
    curlLibPath:hsym `$QFACTOM_HOME,"/lib/clibs/curlLib";
-   .factomd.curl:.[2:;(curlLibPath;(`request;5));{[err] -2 "Error -> Failed to Load curl from shared library: ",err; exit 1}];
+   .factomd.curl:.[2:;(curlLibPath;(`request;5));{[err] -2 "Warning -> Failed to load curl: ",err;:{[a;b;c;d;e] .j.j "curl not set,TLS not enabled"}}];
    loadFile QFACTOM_HOME,"/lib/q.k";
    loadFile QFACTOM_HOME,"/lib/requests.q";
    loadFile QFACTOM_HOME,"/lib/utilities.q";
