@@ -1,8 +1,5 @@
 \d .factomd
 
-curlLibPath:hsym `$getenv[`QFACTOM_HOME],"/utils/curlLib";
-curl:curlLibPath 2:(`request;5)
-
 
 qRequest:{[serviceName;body]
   hostName:.factomd.hostLookup[serviceName];
