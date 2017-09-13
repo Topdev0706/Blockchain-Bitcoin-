@@ -3,7 +3,7 @@
 
 
 // Load functions from cryptoLib shared object
-libPath:hsym `$getenv[`QFACTOM_HOME],"utils/cryptoLib";
+libPath:hsym `$getenv[`QFACTOM_HOME],"/lib/clibs/cryptoLib";
 Sha256:libPath 2:(`Sha256;1)
 Sha512:libPath 2:(`Sha512;1)
 decodeToBytes:libPath 2:(`decodeToBytes;1)
