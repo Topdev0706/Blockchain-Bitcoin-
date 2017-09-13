@@ -1,7 +1,7 @@
 .utl.require "qfactom"
 
 // Load Sha256 hashing function
-libPath:hsym `$getenv[`QFACTOM_HOME],"/utils/cryptoLib";
+libPath:hsym `$getenv[`QFACTOM_HOME],"/lib/clibs/cryptoLib";
 Sha256:libPath 2:(`Sha256;1)
 
 

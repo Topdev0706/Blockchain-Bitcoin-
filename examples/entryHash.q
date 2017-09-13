@@ -7,7 +7,7 @@
 .utl.require "qfactom"
 entryHash:"be9c9b0f0f5c43c69e120a07632da2bde722fa0c704b092bcdcfd3f57b8c661d"
 
-libPath:hsym `$getenv[`QFACTOM_HOME],"utils/cryptoLib";
+libPath:hsym `$getenv[`QFACTOM_HOME],"/lib/clibs/cryptoLib";
 Sha256:libPath 2:(`Sha256;1)
 Sha512:libPath 2:(`Sha512;1)
 

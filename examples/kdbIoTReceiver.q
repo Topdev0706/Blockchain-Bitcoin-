@@ -5,7 +5,7 @@ chainID:"f6b3c9ef3ff41fb29ce51811edf3bf104cc2f202df5f10341f6e8333658e3cf2"
 
 // Load Sha256 hashing function
 
-libPath:hsym `$getenv[`QFACTOM_HOME],"/utils/cryptoLib";
+libPath:hsym `$getenv[`QFACTOM_HOME],"/lib/clibs/cryptoLib";
 Sha256:libPath 2:(`Sha256;1)
 
 // Define table schemas
