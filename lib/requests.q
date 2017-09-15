@@ -7,7 +7,7 @@ qRequest:{[serviceName;body]
   header:"Authorization: Basic ",credentials," ",";Content-Type: text/plain";
 
   out:@[.Q.hpfact[hostName;header;];.j.j body;{[err] -2 "Error: qRequest: ",err;:"{}"}];
-  @[.j.k;;{[out;err] -2 "Error: ",err," .Q.hpfact returned: ",out}[out;]] out 
+  @[.j.k;;{[out;err] -2 "Error: ",err," .Q.hpfact returned: ",out;:(enlist `error)!(enlist out)}[out;]] out 
  }
 
 curlRequest:{[serviceName;body]
@@ -20,7 +20,7 @@ curlRequest:{[serviceName;body]
    host:$[`~tlsCert;`$1 _string[hostName];`$1 _ssr[string[hostName];"http";"https"]];
 
    out:@[.factomd.curl[host;body;header;tlsCert;];credentials;{[err] -2 "Error: curlRequest: ",err;:"{}"}];
-   @[.j.k;;{[out;err] -2 "Error: ",err," curl returned: ",out}[out;]] out
+   @[.j.k;;{[out;err] -2 "Error: ",err," curl returned: ",out;(enlist `error)!(enlist out)}[out;]] out
  }
 
 request:qRequest
