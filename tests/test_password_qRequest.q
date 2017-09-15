@@ -7,7 +7,7 @@
 .utl.require "qspec"
 
 
-.tst.desc["Test username and password authentication logic using q (.Q,hp) request function"]{
+.tst.desc["Test username and password authentication logic using q (.Q.hpfact) request function"]{
   alt{
    before{ 
      .factomd.request:.factomd.qRequest
