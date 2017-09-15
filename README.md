@@ -100,10 +100,13 @@ An easy way to confirm that the hostname and authentication credentials are set 
     result | `walletversion`walletapiversion!("0.2.2.3";"2.0")
 ```
 
-Incorrect username and password credentials will result in the following error
+Incorrect username and password credentials will result in an error message being printed to stderr,
+and a dictionary object with key error being returned.
 ```C++
     q).factomd.properties[{x}]
-    Error: illegal char U at 4 .Q.hp returned: 401 Unauthorized.
+    Error: illegal char U at 4 .Q.hpfact returned: 401 Unauthorized.
+
+    error| "401 Unauthorized.\n"
 ```
 ### Security: TLS Support
 
