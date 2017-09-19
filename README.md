@@ -20,7 +20,7 @@ For install and usage instructions see [wiki](https://github.com/jlucid/qfactom/
 * Securing large IoT data sets, see [Blockchain IoT Project](https://www.ethnews.com/factom-receives-second-dhs-grant-for-blockchain-iot-project) and [kdb+ mock example](https://github.com/jlucid/qfactom/wiki/Securing-Streaming-IoT-data)
 * Securing private blockchains through the use of anchoring, see [Blockchain Auditing](http://bitfury.com/content/5-white-papers-research/bitfury_white_paper_on_blockchain_auditability.pdf)   
 * Auditing and Compliance tool.
-For example, in the Mortgage insustry, see [Factom Harmony](https://www.factom.com/products/harmony/video), [Factom Apollo](https://vimeo.com/154918515).
+For example, in the Mortgage industry, see [Factom Harmony](https://www.factom.com/products/harmony/video), [Factom Apollo](https://vimeo.com/154918515).
 * Providing a proof of existence.
 Anchor hashes in the bitcoin blockchain can provide indisputable cryptographic proof that data was 
 at a particular state at a given point in time, see [PoE Explained](http://www.newsbtc.com/proof-of-existence/)
