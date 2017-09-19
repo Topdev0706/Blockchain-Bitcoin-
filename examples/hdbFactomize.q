@@ -25,8 +25,8 @@ computeColHash:{[colPaths]
 
 // Write an entry to the factom chain
 chainAppend:{[Root;Date;Tbl;Entry]
-  idFields:("PublishDateTime:",string[.z.p];"HDB:",Root;"Tbl:",string[Tbl];"HDBDate:",string[Date];"ColumnPath:",string[Entry[0]]);
-  .factomwallet.append_factom_chain[ecAddr;.factomd.util.hexEncodeString idFields;string[Entry[1]];chainID;{x}];
+  idFields:("PublishDateTime:",string[.z.p];"HDB:",Root;"Tbl:",string[Tbl];"HDBDate:",string[Date];"ColumnPath:",string[first Entry[0]]);
+  .factomwallet.append_factom_chain[ecAddr;.factomd.util.hexEncodeString idFields;string[first Entry[1]];chainID;{x}];
  }
 
 // Function to be called at EOD to secure data partition data
