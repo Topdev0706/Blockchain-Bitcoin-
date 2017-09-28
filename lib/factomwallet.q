@@ -201,7 +201,7 @@ compose_entry:{[entryCreditAddress;exTids;Content;chainID;callback]
 checkTransError:{[output]
   $[`error in key output;
     [
-     -2 "Transaction Error: ",(string output[`error][`code])," "," " sv value (`code _ output[`error]);
+     -2 "Transaction Error: ",$[99h~type output[`error];(string output[`error][`code])," "," " sv value (`code _ output[`error]);output[`error]];
      :1b
     ];
    :0b
@@ -219,13 +219,13 @@ storeData:{[Data]
 
 trans_fact_fact:{[txname;input;output;quantity;callback]
   Output:new_transaction[txname;storeData];
-  if[checkTransError[Output];:()];
+  if[checkTransError[Output];:Output];
   Output:add_input[txname;input;quantity;storeData];
-  if[checkTransError[Output];:()];
+  if[checkTransError[Output];:Output];
   Output:add_output[txname;output;quantity;storeData];
-  if[checkTransError[Output];:()];
+  if[checkTransError[Output];:Output];
   Output:sub_fee[txname;output;storeData];
-  if[checkTransError[Output];:()];
+  if[checkTransError[Output];:Output];
   sign_transaction[txname;storeData];
   hexString:compose_transaction[txname;{x[`result][`params][`transaction]}];
   .factomd.factoid_submit[hexString;callback]
@@ -234,13 +234,13 @@ trans_fact_fact:{[txname;input;output;quantity;callback]
 
 trans_fact_ec:{[txname;input;outputEC;quantity;callback]
   Output:new_transaction[txname;storeData];
-  if[checkTransError[Output];:()];
+  if[checkTransError[Output];:Output];
   Output:add_input[txname;input;quantity;storeData];
-  if[checkTransError[Output];:()];
+  if[checkTransError[Output];:Output];
   Output:add_ec_output[txname;outputEC;quantity;storeData];
-  if[checkTransError[Output];:()];
+  if[checkTransError[Output];:Output];
   Output:add_fee[txname;input;storeData];
-  if[checkTransError[Output];:()];
+  if[checkTransError[Output];:Output];
   sign_transaction[txname;storeData];
   hexString:compose_transaction[txname;{x[`result][`params][`transaction]}];
   .factomd.factoid_submit[hexString;callback]
