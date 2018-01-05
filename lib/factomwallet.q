@@ -268,7 +268,8 @@ create_factom_chain:{[entryCreditAddress;externalIDStringList;contentsString;cal
   revealChainResult:.factomd.reveal_chain[composeChainResult[`result][`reveal][`params][`entry];{x}];
   if[errorCheck[revealChainResult];:()];
   entryhash:revealChainResult[`result][`entryhash];
-  callback `txid`entryhash!(txid;entryhash)  
+  chainid:revealChainResult[`result][`chainid];
+  callback `txid`entryhash`chainid!(txid;entryhash;chainid)  
  }	
 
  
