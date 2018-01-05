@@ -34,7 +34,6 @@ address:{[factoidAddress;callback]
 all_addresses:{[callback]
   body:defaultPayload[];
   body[`method]:"all-addresses";
-  body[`params]:"";
   callback .factomd.request[`wallet;body]
  }
 
@@ -42,7 +41,6 @@ all_addresses:{[callback]
 generate_ec_address:{[callback]
   body:defaultPayload[];
   body[`method]:"generate-ec-address";
-  body[`params]:"";
   callback .factomd.request[`wallet;body]
  }
 
@@ -50,7 +48,6 @@ generate_ec_address:{[callback]
 generate_factoid_address:{[callback]
   body:defaultPayload[];
   body[`method]:"generate-factoid-address";
-  body[`params]:"";
   callback .factomd.request[`wallet;body]
  }
 
@@ -58,7 +55,6 @@ generate_factoid_address:{[callback]
 get_height:{[callback]
   body:defaultPayload[];
   body[`method]:"get-height";
-  body[`params]:"";
   callback .factomd.request[`wallet;body]
  }
 
@@ -87,7 +83,6 @@ import_koinify:{[passPhrase;callback]
 wallet_backup:{[callback]
   body:defaultPayload[];
   body[`method]:"wallet-backup";
-  body[`params]:"";
   callback .factomd.request[`wallet;body]
  }
 
@@ -95,7 +90,6 @@ wallet_backup:{[callback]
 tmp_transactions:{[callback]
   body:defaultPayload[];
   body[`method]:"tmp-transactions";
-  body[`params]:"";
   callback .factomd.request[`wallet;body]
  }
 
